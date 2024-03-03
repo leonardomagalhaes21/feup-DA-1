@@ -10,5 +10,5 @@ add_executable(feup_DA_1 main.cpp
         Classes/WaterReservoir.h
         Classes/PumpingStation.cpp
         Classes/PumpingStation.h
-        Classes/DeliverySites.cpp
-        Classes/DeliverySites.h)
+        Classes/DeliverySite.cpp
+        Classes/DeliverySite.h)

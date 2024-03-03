@@ -5,17 +5,17 @@
 
 class WaterReservoir {
     public:
-        WaterReservoir(int id, std::string name, std::string code, std::string municipality, int maxDelivery);
-        int getId() const;
+        WaterReservoir(std::string name, std::string municipality, int id, std::string code, int maxDelivery);
         std::string getName() const;
         std::string getMunicipality() const;
+        int getId() const;
         std::string getCode() const;
         int getMaxDelivery() const;
 
     private:
-        int id;
         std::string name;
         std::string municipality;
+        int id;
         std::string code;
         int maxDelivery;
 
