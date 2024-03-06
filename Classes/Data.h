@@ -5,6 +5,7 @@
 #include <sstream>
 #include <fstream>
 #include <algorithm>
+#include <string>
 #include "WaterReservoir.h"
 #include "PumpingStation.h"
 #include "DeliverySite.h"
@@ -17,6 +18,7 @@ class Data {
         const std::unordered_map<std::string, WaterReservoir> &getReservoirs() const;
         const std::unordered_map<std::string, PumpingStation> &getStations() const;
         const std::unordered_map<std::string, DeliverySite> &getSites() const;
+        const Graph<std::string> &getGraph() const;
         void readReservoirs(const std::string& filename);
         void readStations(const std::string &filename);
         void readSites(const std::string &filename);

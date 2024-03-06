@@ -7,6 +7,7 @@ Data::Data(){
     readReservoirs("../dataset/Reservoirs_Madeira.csv");
     readStations("../dataset/Stations_Madeira.csv");
     readSites("../dataset/Cities_Madeira.csv");
+    readPipes("../dataset/Pipes_Madeira.csv");
 }
 
 const unordered_map<string, WaterReservoir> &Data::getReservoirs() const {
@@ -20,6 +21,11 @@ const std::unordered_map<string, PumpingStation> &Data::getStations() const {
 const std::unordered_map<std::string, DeliverySite> &Data::getSites() const {
     return sites;
 }
+
+const Graph<std::string> &Data::getGraph() const {
+    return graph;
+}
+
 
 void Data::readReservoirs(const std::string& filename){
     ifstream file(filename);
@@ -122,30 +128,40 @@ void Data::readPipes(const std::string &filename) {
     string line;
     getline(file, line);
 
+    while (getline(file, line)) {
+        istringstream ss(line);
+        string temp;
+        string a, b;
+        int capacity;
+        bool flag;
 
+        getline(ss, a, ',');
+        getline(ss, b, ',');
+        getline(ss, temp, ',');
+        capacity = stoi(temp);
+        getline(ss, temp, ',');
+        flag = (bool) stoi(temp);
+        graph.addVertex(a);
+        graph.addVertex(b);
+        graph.addEdge(a, b, capacity);
+        if(!flag) graph.addEdge(b, a, capacity);
 
-    //ifstream file(filename);
-    //
-    //    flights = Graph(airports);
-    //
-    //    string source, target, airline, aLine;
-    //    getline(file, aLine);
-    //    while (getline(file, aLine)){
-    //        istringstream inn(aLine);
-    //        getline(inn, source, ',');
-    //        getline(inn, target, ',');
-    //        getline(inn, airline, ',');
-    //        Position p1 = airports.find(source)->second.getPosition();
-    //        Position p2 = airports.find(target)->second.getPosition();
-    //        flights.addEdge(source, target, airline, p1.haversineDistance(p2));
-    //    }
-    //    for (auto vertex : flights.getVertexSet()){
-    //        vertex->setOutdegree((int) vertex->getAdj().size());
-    //        vertex->setIndegree(0);
-    //    }
-    //    for (auto vertex : flights.getVertexSet()){
-    //        for (const auto& edge : vertex->getAdj()){
-    //            edge.getDest()->setIndegree(edge.getDest()->getIndegree() + 1);
-    //        }
-    //    }
+    }
+    for (auto vertex : graph.getVertexSet()){
+        string s = vertex->getCode();
+        string prefix = s.substr(0, s.find('_'));
+        if (prefix == "R") {
+            vertex->setSel(1);
+        }
+        else if (prefix == "PS") {
+            vertex->setSel(2);
+        }
+        else if (prefix == "C") {
+            vertex->setSel(3);
+        }
+        else {
+            cerr << "There was an error reading the pipeline!" << endl;
+        }
+    }
+
 }
