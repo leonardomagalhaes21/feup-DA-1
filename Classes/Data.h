@@ -8,6 +8,7 @@
 #include "WaterReservoir.h"
 #include "PumpingStation.h"
 #include "DeliverySite.h"
+#include "Graph.h"
 
 
 class Data {
@@ -19,11 +20,13 @@ class Data {
         void readReservoirs(const std::string& filename);
         void readStations(const std::string &filename);
         void readSites(const std::string &filename);
+        void readPipes(const std::string &filename);
 
     private:
         std::unordered_map<std::string, WaterReservoir> reservoirs;
         std::unordered_map<std::string, PumpingStation> stations;
         std::unordered_map<std::string, DeliverySite> sites;
+        Graph<std::string> graph;
 };
 
 

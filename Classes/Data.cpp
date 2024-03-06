@@ -110,3 +110,42 @@ void Data::readSites(const std::string &filename) {
         sites.insert({code, ds});
     }
 }
+
+void Data::readPipes(const std::string &filename) {
+    ifstream file(filename);
+
+    if (!file.is_open()) {
+        std::cerr << "There was an error opening file " << filename << endl;
+        return;
+    }
+
+    string line;
+    getline(file, line);
+
+
+
+    //ifstream file(filename);
+    //
+    //    flights = Graph(airports);
+    //
+    //    string source, target, airline, aLine;
+    //    getline(file, aLine);
+    //    while (getline(file, aLine)){
+    //        istringstream inn(aLine);
+    //        getline(inn, source, ',');
+    //        getline(inn, target, ',');
+    //        getline(inn, airline, ',');
+    //        Position p1 = airports.find(source)->second.getPosition();
+    //        Position p2 = airports.find(target)->second.getPosition();
+    //        flights.addEdge(source, target, airline, p1.haversineDistance(p2));
+    //    }
+    //    for (auto vertex : flights.getVertexSet()){
+    //        vertex->setOutdegree((int) vertex->getAdj().size());
+    //        vertex->setIndegree(0);
+    //    }
+    //    for (auto vertex : flights.getVertexSet()){
+    //        for (const auto& edge : vertex->getAdj()){
+    //            edge.getDest()->setIndegree(edge.getDest()->getIndegree() + 1);
+    //        }
+    //    }
+}
