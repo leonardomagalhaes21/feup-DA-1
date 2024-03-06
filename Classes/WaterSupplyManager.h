@@ -1,0 +1,10 @@
+#ifndef FEUP_DA_1_WATERSUPPLYMANAGER_H
+#define FEUP_DA_1_WATERSUPPLYMANAGER_H
+
+
+class WaterSupplyManager {
+
+};
+
+
+#endif //FEUP_DA_1_WATERSUPPLYMANAGER_H
