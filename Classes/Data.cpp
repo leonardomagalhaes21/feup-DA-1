@@ -4,10 +4,10 @@
 using namespace std;
 
 Data::Data(){
-    readReservoirs("../dataset/Reservoirs_Madeira.csv");
-    readStations("../dataset/Stations_Madeira.csv");
-    readSites("../dataset/Cities_Madeira.csv");
-    readPipes("../dataset/Pipes_Madeira.csv");
+    readReservoirs("../dataset/Reservoir.csv");
+    readStations("../dataset/Stations.csv");
+    readSites("../dataset/Cities.csv");
+    readPipes("../dataset/Pipes.csv");
 }
 
 const unordered_map<string, WaterReservoir> &Data::getReservoirs() const {
