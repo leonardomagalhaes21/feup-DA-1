@@ -23,7 +23,7 @@ public:
     Vertex(T in);
     bool operator<(Vertex<T> & vertex) const; // // required by MutablePriorityQueue
 
-    T getInfo() const;
+    T getCode() const;
     std::vector<Edge<T> *> getAdj() const;
     bool isVisited() const;
     bool isProcessing() const;
@@ -32,8 +32,8 @@ public:
     Edge<T> *getPath() const;
     std::vector<Edge<T> *> getIncoming() const;
 
-    void setInfo(T info);
-    void setSel(int nr);
+    void setCode(T code);
+    void setSel(int sel);
     int getSel() const;
     void setVisited(bool visited);
     void setProcesssing(bool processing);
@@ -45,8 +45,8 @@ public:
     void removeOutgoingEdges();
 
 protected:
-    int code;                // code node
-    int sel;  //1,2 or 3
+    T code;                // code node
+    int sel;  //1(water reservoir) ,2(pumping station) or 3(delivery site)
     std::vector<Edge<T> *> adj;  // outgoing edges
 
     // auxiliary fields
@@ -175,7 +175,7 @@ bool Vertex<T>::removeEdge(T in) {
     while (it != adj.end()) {
         Edge<T> *edge = *it;
         Vertex<T> *dest = edge->getDest();
-        if (dest->getInfo() == in) {
+        if (dest->getCode() == in) {
             it = adj.erase(it);
             deleteEdge(edge);
             removedEdge = true; // allows for multiple edges to connect the same pair of vertices (multigraph)
@@ -206,7 +206,7 @@ bool Vertex<T>::operator<(Vertex<T> & vertex) const {
 }
 
 template <class T>
-T Vertex<T>::getInfo() const {
+T Vertex<T>::getCode() const {
     return this->code;
 }
 
@@ -246,7 +246,7 @@ std::vector<Edge<T> *> Vertex<T>::getIncoming() const {
 }
 
 template <class T>
-void Vertex<T>::setInfo(T in) {
+void Vertex<T>::setCode(T in) {
     this->code = in;
 }
 
@@ -289,7 +289,7 @@ void Vertex<T>::deleteEdge(Edge<T> *edge) {
     // Remove the corresponding edge from the incoming list
     auto it = dest->incoming.begin();
     while (it != dest->incoming.end()) {
-        if ((*it)->getOrig()->getInfo() == code) {
+        if ((*it)->getOrig()->getCode() == code) {
             it = dest->incoming.erase(it);
         }
         else {
@@ -367,7 +367,7 @@ std::vector<Vertex<T> *> Graph<T>::getVertexSet() const {
 template <class T>
 Vertex<T> * Graph<T>::findVertex(const T &in) const {
     for (auto v : vertexSet)
-        if (v->getInfo() == in)
+        if (v->getCode() == in)
             return v;
     return nullptr;
 }
@@ -378,7 +378,7 @@ Vertex<T> * Graph<T>::findVertex(const T &in) const {
 template <class T>
 int Graph<T>::findVertexIdx(const T &in) const {
     for (unsigned i = 0; i < vertexSet.size(); i++)
-        if (vertexSet[i]->getInfo() == in)
+        if (vertexSet[i]->getCode() == in)
             return i;
     return -1;
 }
@@ -402,11 +402,11 @@ bool Graph<T>::addVertex(const T &in) {
 template <class T>
 bool Graph<T>::removeVertex(const T &in) {
     for (auto it = vertexSet.begin(); it != vertexSet.end(); it++) {
-        if ((*it)->getInfo() == in) {
+        if ((*it)->getCode() == in) {
             auto v = *it;
             v->removeOutgoingEdges();
             for (auto u : vertexSet) {
-                u->removeEdge(v->getInfo());
+                u->removeEdge(v->getCode());
             }
             vertexSet.erase(it);
             delete v;
@@ -504,7 +504,7 @@ std::vector<T> Graph<T>::dfs(const T & source) const {
 template <class T>
 void Graph<T>::dfsVisit(Vertex<T> *v, std::vector<T> & res) const {
     v->setVisited(true);
-    res.push_back(v->getInfo());
+    res.push_back(v->getCode());
     for (auto & e : v->getAdj()) {
         auto w = e->getDest();
         if (!w->isVisited()) {
@@ -540,7 +540,7 @@ std::vector<T> Graph<T>::bfs(const T & source) const {
     while (!q.empty()) {
         auto v = q.front();
         q.pop();
-        res.push_back(v->getInfo());
+        res.push_back(v->getCode());
         for (auto & e : v->getAdj()) {
             auto w = e->getDest();
             if ( ! w->isVisited()) {
@@ -630,7 +630,7 @@ std::vector<T> Graph<T>::topsort() const {
     while( !q.empty() ) {
         Vertex<T> * v = q.front();
         q.pop();
-        res.push_back(v->getInfo());
+        res.push_back(v->getCode());
         for(auto e : v->getAdj()) {
             auto w = e->getDest();
             w->setIndegree(w->getIndegree() - 1);
