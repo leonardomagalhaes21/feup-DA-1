@@ -16,5 +16,4 @@ add_executable(feup_DA_1 main.cpp
         Classes/Menu.cpp
         Classes/Menu.h
         Classes/WaterSupplyManager.cpp
-        Classes/WaterSupplyManager.h
         Classes/WaterSupplyManager.h)

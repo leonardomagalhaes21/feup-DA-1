@@ -8,6 +8,11 @@ Data::Data(){
     readStations("../dataset/Stations.csv");
     readSites("../dataset/Cities.csv");
     readPipes("../dataset/Pipes.csv");
+
+    //readReservoirs("../dataset/Madeira/Reservoirs_Madeira.csv");
+    //readStations("../dataset/Madeira/Stations_Madeira.csv");
+    //readSites("../dataset/Madeira/Cities_Madeira.csv");
+    //readPipes("../dataset/Madeira/Pipes_Madeira.csv");
 }
 
 const unordered_map<string, WaterReservoir> &Data::getReservoirs() const {
