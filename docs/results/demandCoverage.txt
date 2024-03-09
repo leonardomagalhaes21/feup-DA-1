@@ -1,0 +1,7 @@
+City: C_10	Deficit: 93
+City: C_17	Deficit: 274
+City: C_21	Deficit: 26
+City: C_22	Deficit: 67
+City: C_3	Deficit: 50
+City: C_5	Deficit: 22
+City: C_8	Deficit: 22

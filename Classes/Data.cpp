@@ -137,13 +137,13 @@ void Data::readPipes(const std::string &filename) {
         istringstream ss(line);
         string temp;
         string a, b;
-        int capacity;
+        double capacity;
         bool flag;
 
         getline(ss, a, ',');
         getline(ss, b, ',');
         getline(ss, temp, ',');
-        capacity = stoi(temp);
+        capacity = stod(temp);
         getline(ss, temp, ',');
         flag = (bool) stoi(temp);
         graph.addVertex(a);
