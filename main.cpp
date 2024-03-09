@@ -24,6 +24,8 @@ int main() {
         };
     }
     w.maxFlowToCities();
+    std::cout << std::endl;
+    w.demandCoverage();
 
     return 0;
 }

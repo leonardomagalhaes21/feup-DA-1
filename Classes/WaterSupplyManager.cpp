@@ -144,6 +144,26 @@ void WaterSupplyManager::maxFlowToCities() {
             int maxFlow = edmondsKarp(&temp, superSource, v->getCode());
             cout << "City: " << v->getCode() << '\t' << "Max Flow: " << maxFlow << endl;
             out <<  "City: " << v->getCode() << '\t' << "Max Flow: " << maxFlow << endl;
+
+            maxFlows[v->getCode()] = maxFlow;
+        }
+    }
+
+    out.close();
+}
+
+void WaterSupplyManager::demandCoverage() {
+    ofstream out("../docs/results/demandCoverage.txt");
+
+    for (auto v : graph.getVertexSet()){
+        if (v->getSel() == 3){
+            int coverage = maxFlows.find(v->getCode())->second;
+            double demand = sites.find(v->getCode())->second.getDemand();
+            double deficit = demand - coverage;
+            if (deficit > 0){
+                cout << "City: " << v->getCode() << '\t' << "Deficit: " << deficit << endl;
+                out << "City: " << v->getCode() << '\t' << "Deficit: " << deficit << endl;
+            }
         }
     }
 
