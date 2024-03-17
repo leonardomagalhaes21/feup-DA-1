@@ -20,6 +20,8 @@ class WaterSupplyManager {
         Graph<std::string> graph;
 
         std::unordered_map<std::string, int> maxFlows;
+
+    void maxFlowToCitiesclean();
 };
 
 
