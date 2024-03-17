@@ -22,7 +22,8 @@ void Menu::displayMenu() {
         switch (choice) {
             case 1:
                 std::cout << "1. View the maximum amount of water that can reach each or a specific city " << std::endl;
-                std::cout << "2. View if an existing network configuration meet the water needs of its customer " << std::endl;
+                std::cout << "2. View if an existing network configuration meet the water needs of its customer "
+                          << std::endl;
                 std::cout << "3. View list of all UC's " << std::endl;
                 std::cout << "0. Exit" << std::endl;
 

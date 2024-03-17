@@ -5,14 +5,16 @@
 #include <string>
 
 class PumpingStation {
-    public:
-        PumpingStation(int id, std::string code);
-        int getId() const;
-        const std::string &getCode() const;
+public:
+    PumpingStation(int id, std::string code);
 
-    private:
-        int id;
-        std::string code;
+    int getId() const;
+
+    const std::string &getCode() const;
+
+private:
+    int id;
+    std::string code;
 
 };
 

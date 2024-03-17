@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Data::Data(){
+Data::Data() {
     readReservoirs("../dataset/Reservoir.csv");
     readStations("../dataset/Stations.csv");
     readSites("../dataset/Cities.csv");
@@ -32,7 +32,7 @@ const Graph<std::string> &Data::getGraph() const {
 }
 
 
-void Data::readReservoirs(const std::string& filename){
+void Data::readReservoirs(const std::string &filename) {
     ifstream file(filename);
 
     if (!file.is_open()) {
@@ -149,22 +149,19 @@ void Data::readPipes(const std::string &filename) {
         graph.addVertex(a);
         graph.addVertex(b);
         graph.addEdge(a, b, capacity);
-        if(!flag) graph.addEdge(b, a, capacity);
+        if (!flag) graph.addEdge(b, a, capacity);
 
     }
-    for (auto vertex : graph.getVertexSet()){
+    for (auto vertex: graph.getVertexSet()) {
         string s = vertex->getCode();
         string prefix = s.substr(0, s.find('_'));
         if (prefix == "R") {
             vertex->setSel(1);
-        }
-        else if (prefix == "PS") {
+        } else if (prefix == "PS") {
             vertex->setSel(2);
-        }
-        else if (prefix == "C") {
+        } else if (prefix == "C") {
             vertex->setSel(3);
-        }
-        else {
+        } else {
             cerr << "There was an error reading the pipeline!" << endl;
         }
     }

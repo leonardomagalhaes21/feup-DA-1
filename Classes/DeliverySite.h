@@ -5,20 +5,25 @@
 #include <string>
 
 class DeliverySite {
-    public:
-        DeliverySite(std::string name, int id, std::string code, double demand, int population);
-        const std::string & getName() const;
-        int getId() const;
-        const std::string & getCode() const;
-        double getDemand() const;
-        int getPopulation() const;
+public:
+    DeliverySite(std::string name, int id, std::string code, double demand, int population);
 
-    private:
-        std::string name;
-        int id;
-        std::string code;
-        double demand;
-        int population;
+    const std::string &getName() const;
+
+    int getId() const;
+
+    const std::string &getCode() const;
+
+    double getDemand() const;
+
+    int getPopulation() const;
+
+private:
+    std::string name;
+    int id;
+    std::string code;
+    double demand;
+    int population;
 
 };
 
