@@ -1,5 +1,7 @@
 #include "WaterSupplyManager.h"
 #include <iostream>
+#include <climits>
+
 using namespace std;
 
 
@@ -152,8 +154,43 @@ void WaterSupplyManager::maxFlowToCities() {
     out.close();
 }
 
+void WaterSupplyManager::maxFlowToCitiesclean() {
+    Graph<string> temp = graph;
+    string superSource = "superSource";
+    string superSink = "superSink";
+
+    temp.addVertex(superSource);
+    temp.addVertex(superSink);
+    for (auto vertex : temp.getVertexSet()){
+        if (vertex->getSel() == 1){
+            temp.addEdge("superSource", vertex->getCode(), INT_MAX);
+        }
+        if (vertex->getSel() == 3){
+            temp.addEdge(vertex->getCode(), "superSink", INT_MAX);
+        }
+    }
+
+    int completeMaxFlow = edmondsKarp(&temp,superSource, superSink);
+//    cout << "The maximum flow of the full network is: " << completeMaxFlow << endl;
+
+    ofstream out("../docs/results/maxFlow.txt");
+
+    for (auto v : temp.getVertexSet()){
+        if (v->getSel() == 3){
+            int maxFlow = edmondsKarp(&temp, superSource, v->getCode());
+//            cout << "City: " << v->getCode() << '\t' << "Max Flow: " << maxFlow << endl;
+//            out <<  "City: " << v->getCode() << '\t' << "Max Flow: " << maxFlow << endl;
+
+            maxFlows[v->getCode()] = maxFlow;
+        }
+    }
+
+    out.close();
+}
 void WaterSupplyManager::demandCoverage() {
+    maxFlowToCitiesclean();
     ofstream out("../docs/results/demandCoverage.txt");
+
 
     for (auto v : graph.getVertexSet()){
         if (v->getSel() == 3){
