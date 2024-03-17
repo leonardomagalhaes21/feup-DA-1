@@ -46,6 +46,10 @@ public:
 
     int getSel() const;
 
+    void setFlow(int flow);
+
+    int getFlow() const;
+
     void setVisited(bool visited);
 
     void setProcesssing(bool processing);
@@ -65,6 +69,7 @@ public:
 protected:
     T code;                // code node
     int sel;  //1(water reservoir) ,2(pumping station) or 3(delivery site)
+    int flow;
     std::vector<Edge<T> *> adj;  // outgoing edges
 
     // auxiliary fields
@@ -307,6 +312,16 @@ void Vertex<T>::setSel(int sel) {
 template<class T>
 int Vertex<T>::getSel() const {
     return this->sel;
+}
+
+template<class T>
+void Vertex<T>::setFlow(int flow){
+    this->flow = flow;
+}
+
+template<class T>
+int Vertex<T>::getFlow() const{
+    return this->flow;
 }
 
 template<class T>

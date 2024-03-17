@@ -16,15 +16,17 @@ public:
 
     void demandCoverage();
 
+    void pumpMaxFlow();
+
+    void resetFlow();
+
 private:
     std::unordered_map<std::string, WaterReservoir> reservoirs;
     std::unordered_map<std::string, PumpingStation> stations;
     std::unordered_map<std::string, DeliverySite> sites;
     Graph<std::string> graph;
 
-    std::unordered_map<std::string, int> maxFlows;
 
-    void maxFlowToCitiesClean();
 };
 
 
