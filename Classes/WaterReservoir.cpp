@@ -1,8 +1,9 @@
 #include "WaterReservoir.h"
+
 using namespace std;
 
 WaterReservoir::WaterReservoir(string name, string municipality, int id, string code, int maxDelivery)
-    : name(name), municipality(municipality), id(id), code(code), maxDelivery(maxDelivery) {}
+        : name(name), municipality(municipality), id(id), code(code), maxDelivery(maxDelivery) {}
 
 
 string WaterReservoir::getName() const {
@@ -16,6 +17,7 @@ string WaterReservoir::getMunicipality() const {
 int WaterReservoir::getId() const {
     return id;
 }
+
 std::string WaterReservoir::getCode() const {
     return code;
 }

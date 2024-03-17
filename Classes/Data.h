@@ -13,22 +13,30 @@
 
 
 class Data {
-    public:
-        Data();
-        const std::unordered_map<std::string, WaterReservoir> &getReservoirs() const;
-        const std::unordered_map<std::string, PumpingStation> &getStations() const;
-        const std::unordered_map<std::string, DeliverySite> &getSites() const;
-        const Graph<std::string> &getGraph() const;
-        void readReservoirs(const std::string& filename);
-        void readStations(const std::string &filename);
-        void readSites(const std::string &filename);
-        void readPipes(const std::string &filename);
+public:
+    Data();
 
-    private:
-        std::unordered_map<std::string, WaterReservoir> reservoirs;
-        std::unordered_map<std::string, PumpingStation> stations;
-        std::unordered_map<std::string, DeliverySite> sites;
-        Graph<std::string> graph;
+    const std::unordered_map<std::string, WaterReservoir> &getReservoirs() const;
+
+    const std::unordered_map<std::string, PumpingStation> &getStations() const;
+
+    const std::unordered_map<std::string, DeliverySite> &getSites() const;
+
+    const Graph<std::string> &getGraph() const;
+
+    void readReservoirs(const std::string &filename);
+
+    void readStations(const std::string &filename);
+
+    void readSites(const std::string &filename);
+
+    void readPipes(const std::string &filename);
+
+private:
+    std::unordered_map<std::string, WaterReservoir> reservoirs;
+    std::unordered_map<std::string, PumpingStation> stations;
+    std::unordered_map<std::string, DeliverySite> sites;
+    Graph<std::string> graph;
 };
 
 
