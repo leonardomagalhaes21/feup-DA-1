@@ -1,104 +1,90 @@
 #include "Menu.h"
-#include "WaterSupplyManager.h"
 #include <iostream>
-#include <algorithm>
-
-void maxwaterforeachcity();
 
 using namespace std;
 
-void Menu::displayMenu() {
-    int choice;
-    do {
+Menu::Menu() {}
 
-        std::cout << "1. Basic Service Metrics" << std::endl;
-        std::cout << "2. Management options" << std::endl;
-        std::cout << "3. Process All Requests" << std::endl;
-        std::cout << "0. Exit" << std::endl;
 
-        std::cout << "Enter your choice: ";
-        std::cin >> choice;
+void Menu::drawTop(){
+    cout << "____________________________________________________" << endl;
+    cout << "|" << "====================== Menu ======================" << "|" << endl;
+    cout << "|__________________________________________________|" << endl;
+}
 
-        switch (choice) {
-            case 1:
-                std::cout << "1. View the maximum amount of water that can reach each or a specific city " << std::endl;
-                std::cout << "2. View if an existing network configuration meet the water needs of its customer "
-                          << std::endl;
-                std::cout << "3. View list of all UC's " << std::endl;
-                std::cout << "0. Exit" << std::endl;
+void Menu::drawBottom(){
+    cout << "|__________________________________________________|" << endl;
+    cout << "|==================================================|" << endl;
+    cout << "|__________________________________________________|" << endl;
+}
 
-                std::cout << "Enter your choice: ";
-                std::cin >> choice;
-                switch (choice) {
-                    case 1:
+void Menu::showMenu() {
+    Data d = Data();
+    WaterSupplyManager wsm = WaterSupplyManager(d);
+
+    char key;
+    bool flag = true;
+    while (flag) {
+        drawTop();
+        cout << "| 1. Basic Service Metrics                         |" << endl;
+        cout << "| Q. Exit                                          |" << endl;
+        drawBottom();
+        cout << "Choose an option: ";
+        cin >> key;
+        switch (key) {
+            case '1': {
+                char key1;
+                drawTop();
+                cout << "| 1. Maximum amount of water that reaches each city|" << endl;
+                cout << "| 2. View cities that have less water than demand  |" << endl;
+                cout << "| Q. Exit                                          |" << endl;
+                drawBottom();
+                cout << "Choose an option: ";
+                cin >> key1;
+                switch (key1) {
+                    case '1': {
                         cout << "CITIES LIST:" << endl;
-                        maxwaterforeachcity();
+                        wsm.maxFlowToCities();
                         break;
-                    case 2:
-                        cout << "CLASSES LIST:" << endl;
-                        checkifnetworkmeetsneeds();
+                    }
+                    case '2': {
+                        cout << "CITIES LIST:" << endl;
+                        wsm.demandCoverage();
                         break;
-                    case 3:
+                    }
 
+                    case 'Q' : {
                         break;
-
-
-                    case 4:
-                        cout << "VIEW STUDENT SCHEDULE: " << endl;
-
-                        break;
-                    case 5:
-                        cout << "VIEW CLASS SCHEDULE:" << endl;
-
-                        break;
-
-                    case 6:
-
-                        break;
-
-
-                    case 0:
-                        std::cout << "Exiting the program." << std::endl;
-                        break;
-                    default:
-                        std::cout << "Invalid choice. Please try again." << std::endl;
-                }
-
-
+                    }
+                    default: {
+                        cout << endl << "Invalid option!" << endl;
+                    }
+                };
                 break;
-            case 2:
-                std::cout << "1. Join new UC" << std::endl;
-                std::cout << "2. Request change of class" << std::endl;
-                std::cout << "0. Exit" << std::endl;
-                std::cout << "Enter your choice: ";
-                std::cin >> choice;
-                switch (choice) {
-                    case 1:
 
-                        break;
-
-                    case 2:
-
-                        break;
-                    case 0:
-                        std::cout << "Exiting the program." << std::endl;
-                        break;
-                    default:
-                        std::cout << "Invalid choice. Please try again." << std::endl;
-                }
-            case 3:
-
+            }
+            case 'Q' : {
+                flag = false;
                 break;
+            }
+            default: {
+                cout << endl << "Invalid option!" << endl;
+            }
+
+        };
+
+        cout << endl;
+        cout << "Would you like to do something else? (Y/N) \n";
+        char newCicle;
+        cin >> newCicle;
+        if (newCicle == 'N') flag = false;
+        while (newCicle != 'Y') {
+            if (newCicle == 'N') {
+                flag = false;
+                break;
+            }
+            cout << "Please type \"Y\" or \"N\"." << endl;
+            cin >> newCicle;
         }
-    } while (choice != 0);
-}
-
-void Menu::maxwaterforeachcity() {
-    managementSystem.maxFlowToCities();
-
-}
-
-void Menu::checkifnetworkmeetsneeds() {
-    managementSystem.demandCoverage();
-
+    }
 }

@@ -1,6 +1,5 @@
 #include "WaterSupplyManager.h"
 #include <iostream>
-#include <climits>
 
 using namespace std;
 
@@ -152,7 +151,7 @@ void WaterSupplyManager::maxFlowToCities() {
     out.close();
 }
 
-void WaterSupplyManager::maxFlowToCitiesclean() {
+void WaterSupplyManager::maxFlowToCitiesClean() {
     Graph<string> temp = graph;
     string superSource = "superSource";
     string superSink = "superSink";
@@ -168,7 +167,7 @@ void WaterSupplyManager::maxFlowToCitiesclean() {
         }
     }
 
-    int completeMaxFlow = edmondsKarp(&temp, superSource, superSink);
+//    int completeMaxFlow = edmondsKarp(&temp, superSource, superSink);
 //    cout << "The maximum flow of the full network is: " << completeMaxFlow << endl;
 
     ofstream out("../docs/results/maxFlow.txt");
@@ -187,7 +186,7 @@ void WaterSupplyManager::maxFlowToCitiesclean() {
 }
 
 void WaterSupplyManager::demandCoverage() {
-    maxFlowToCitiesclean();
+    maxFlowToCitiesClean();
     ofstream out("../docs/results/demandCoverage.txt");
 
 
