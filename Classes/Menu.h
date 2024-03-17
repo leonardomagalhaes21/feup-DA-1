@@ -1,20 +1,16 @@
 #ifndef FEUP_DA_1_MENU_H
 #define FEUP_DA_1_MENU_H
 
+#include "Data.h"
 #include "WaterSupplyManager.h"
 
 class Menu {
 public:
-    Menu(WaterSupplyManager &system) : managementSystem(system) {};
+    Menu();
+    void showMenu();
+    static void drawTop();
+    static void drawBottom();
 
-    void displayMenu();
-
-private:
-    WaterSupplyManager &managementSystem;
-
-    void maxwaterforeachcity();
-
-    void checkifnetworkmeetsneeds();
 };
 
 

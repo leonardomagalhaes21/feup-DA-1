@@ -6,6 +6,7 @@
 #include <string>
 #include <fstream>
 #include <unordered_map>
+#include <climits>
 
 class WaterSupplyManager {
 public:
@@ -23,7 +24,7 @@ private:
 
     std::unordered_map<std::string, int> maxFlows;
 
-    void maxFlowToCitiesclean();
+    void maxFlowToCitiesClean();
 };
 
 

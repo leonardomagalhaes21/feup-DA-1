@@ -1,11 +1,6 @@
-#include <iostream>
-#include "Classes/Data.h"
-#include "Classes/WaterSupplyManager.h"
 #include "Classes/Menu.h"
 
 int main() {
-    Data d = Data();
-    WaterSupplyManager w = WaterSupplyManager(d);
     // provisório -> testar o parsing
 //    std::cout << d.getReservoirs().find("R_3")->second.getName() << std::endl;
 //    std::cout << d.getStations().find("PS_7")->second.getId() << std::endl;
@@ -24,8 +19,9 @@ int main() {
 //                break;
 //        };
 //    }
-    Menu menu(w);
-    menu.displayMenu();
-
+    std::cout << "Loading ..." << std::endl;
+    Menu m = Menu();
+    m.showMenu();
+    std::cout << std::endl;
     return 0;
 }
