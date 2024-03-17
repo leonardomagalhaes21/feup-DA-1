@@ -170,7 +170,7 @@ void WaterSupplyManager::maxFlowToCitiesClean() {
 //    int completeMaxFlow = edmondsKarp(&temp, superSource, superSink);
 //    cout << "The maximum flow of the full network is: " << completeMaxFlow << endl;
 
-    ofstream out("../docs/results/maxFlow.txt");
+//    ofstream out("../docs/results/maxFlow.txt");
 
     for (auto v: temp.getVertexSet()) {
         if (v->getSel() == 3) {
@@ -182,7 +182,7 @@ void WaterSupplyManager::maxFlowToCitiesClean() {
         }
     }
 
-    out.close();
+//    out.close();
 }
 
 void WaterSupplyManager::demandCoverage() {
