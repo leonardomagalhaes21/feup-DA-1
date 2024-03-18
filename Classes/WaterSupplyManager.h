@@ -20,6 +20,12 @@ public:
 
     void resetFlow();
 
+    void evaluatePumpingImpact(std::string pumpingToRemove);
+
+    void evaluateReservoirImpact( std::string reservoirToRemove);
+
+    void evaluateEdgeImpact(const std::string &source, const std::string &destination);
+
 private:
     std::unordered_map<std::string, WaterReservoir> reservoirs;
     std::unordered_map<std::string, PumpingStation> stations;

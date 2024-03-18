@@ -20,8 +20,14 @@ int main() {
 //        };
 //    }
     std::cout << "Loading ..." << std::endl;
+    /*Data d = Data();
+    WaterSupplyManager w = WaterSupplyManager(d);
+    w.evaluateReservoirImpact("R_24");
+    w.evaluatePumpingImpact("PS_10");
+    w.evaluateEdgeImpact("R_5","PS_1");*/
     Menu m = Menu();
     m.showMenu();
     std::cout << std::endl;
+
     return 0;
 }
