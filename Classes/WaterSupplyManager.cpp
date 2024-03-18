@@ -117,40 +117,7 @@ WaterSupplyManager::WaterSupplyManager(const Data &d) {
     graph = d.getGraph();
 }
 
-void WaterSupplyManager::maxFlowToCities() {
-    Graph<string> temp = graph;
-    string superSource = "superSource";
-    string superSink = "superSink";
-
-    temp.addVertex(superSource);
-    temp.addVertex(superSink);
-    for (auto vertex: temp.getVertexSet()) {
-        if (vertex->getSel() == 1) {
-            temp.addEdge("superSource", vertex->getCode(), INT_MAX);
-        }
-        if (vertex->getSel() == 3) {
-            temp.addEdge(vertex->getCode(), "superSink", INT_MAX);
-        }
-    }
-
-    int completeMaxFlow = edmondsKarp(&temp, superSource, superSink);
-    cout << "The maximum flow of the full network is: " << completeMaxFlow << endl;
-
-    ofstream out("../docs/results/maxFlow.txt");
-
-    for (auto v: temp.getVertexSet()) {
-        if (v->getSel() == 3) {
-            int maxFlow = edmondsKarp(&temp, superSource, v->getCode());
-            cout << "City: " << v->getCode() << '\t' << "Max Flow: " << maxFlow << endl;
-            out << "City: " << v->getCode() << '\t' << "Max Flow: " << maxFlow << endl;
-
-        }
-    }
-
-    out.close();
-}
-
-void WaterSupplyManager::pumpMaxFlow() {
+int WaterSupplyManager::pumpMaxFlow() {
     string superSource = "superSource";
     string superSink = "superSink";
 
@@ -165,23 +132,47 @@ void WaterSupplyManager::pumpMaxFlow() {
         }
     }
 
-    for (auto v: graph.getVertexSet()) {
-        if (v->getSel() == 3) {
-            int maxFlow = edmondsKarp(&graph, superSource, v->getCode());
+    int maxFlow = edmondsKarp(&graph, superSource, superSink);
 
-            v->setFlow(maxFlow);
+    for (auto v: graph.getVertexSet()) {
+        for (auto e : v->getAdj()) {
+            if (e->getDest()->getSel() == 3) {
+                e->getDest()->setFlow(e->getDest()->getFlow() + e->getFlow());
+            }
         }
     }
 
     graph.removeVertex(superSource);
     graph.removeVertex(superSink);
 
+    return maxFlow;
 }
 
 void WaterSupplyManager::resetFlow(){
     for (auto v : graph.getVertexSet()){
         v->setFlow(0);
+        for (auto e : v->getAdj()){
+            e->setFlow(0);
+        }
     }
+}
+
+void WaterSupplyManager::maxFlowToCities() {
+    int maxFlow = pumpMaxFlow();
+    cout << "The maximum flow of the full network is: " << maxFlow << endl;
+
+    ofstream out("../docs/results/maxFlow.txt");
+
+    for (auto v: graph.getVertexSet()) {
+        if (v->getSel() == 3) {
+            cout << "City: " << v->getCode() << '\t' << "Max Flow: " << v->getFlow() << endl;
+            out << "City: " << v->getCode() << '\t' << "Max Flow: " << v->getFlow() << endl;
+
+        }
+    }
+
+    resetFlow();
+    out.close();
 }
 
 void WaterSupplyManager::demandCoverage() {
@@ -204,6 +195,7 @@ void WaterSupplyManager::demandCoverage() {
     resetFlow();
     out.close();
 }
+
 void WaterSupplyManager::evaluateReservoirImpact(string reservoirToRemove) {
     Graph<string> temp = graph;
 
