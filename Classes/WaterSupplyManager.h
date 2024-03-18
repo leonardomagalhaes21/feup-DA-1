@@ -16,7 +16,7 @@ public:
 
     void demandCoverage();
 
-    void pumpMaxFlow();
+    int pumpMaxFlow();
 
     void resetFlow();
 
