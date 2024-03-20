@@ -85,7 +85,6 @@ void Menu::showMenu() {
                         string reservoir;
                         cout << "Enter the code of the reservoir (ex:R_1,R_2...): ";
                         cin >> reservoir;
-
                         wsm.evaluateReservoirImpact(reservoir);
 
                         break;
