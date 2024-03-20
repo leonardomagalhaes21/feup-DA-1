@@ -135,7 +135,7 @@ int WaterSupplyManager::pumpMaxFlow() {
     int maxFlow = edmondsKarp(&graph, superSource, superSink);
 
     for (auto v: graph.getVertexSet()) {
-        for (auto e : v->getAdj()) {
+        for (auto e: v->getAdj()) {
             if (e->getDest()->getSel() == 3) {
                 e->getDest()->setFlow(e->getDest()->getFlow() + e->getFlow());
             }
@@ -148,10 +148,10 @@ int WaterSupplyManager::pumpMaxFlow() {
     return maxFlow;
 }
 
-void WaterSupplyManager::resetFlow(){
-    for (auto v : graph.getVertexSet()){
+void WaterSupplyManager::resetFlow() {
+    for (auto v: graph.getVertexSet()) {
         v->setFlow(0);
-        for (auto e : v->getAdj()){
+        for (auto e: v->getAdj()) {
             e->setFlow(0);
         }
     }
@@ -200,8 +200,9 @@ void WaterSupplyManager::evaluateReservoirImpact(string reservoirToRemove) {
     Graph<string> temp = graph;
 
     // Find the reservoir vertex to remove
-    Vertex<string>* reservoir = temp.findVertex(reservoirToRemove);
+    Vertex<string> *reservoir = temp.findVertex(reservoirToRemove);
     if (reservoir == nullptr) {
+        cout << "Reservoir not found" << endl;
         // Reservoir not found, return empty set
         return;
     }
@@ -214,37 +215,39 @@ void WaterSupplyManager::evaluateReservoirImpact(string reservoirToRemove) {
 
     temp.addVertex(superSource);
     temp.addVertex(superSink);
-    for (auto vertex : temp.getVertexSet()){
-        if (vertex->getSel() == 1){
+    for (auto vertex: temp.getVertexSet()) {
+        if (vertex->getSel() == 1) {
             temp.addEdge("superSource", vertex->getCode(), INT_MAX);
         }
-        if (vertex->getSel() == 3){
+        if (vertex->getSel() == 3) {
             temp.addEdge(vertex->getCode(), "superSink", INT_MAX);
         }
     }
 
-    int completeMaxFlow = edmondsKarp(&temp,superSource, superSink);
+    int completeMaxFlow = edmondsKarp(&temp, superSource, superSink);
     cout << "The maximum flow of the full network is: " << completeMaxFlow << endl;
 
     // Run max flow algorithm for each delivery site
-    for (auto v : temp.getVertexSet()) {
+    for (auto v: temp.getVertexSet()) {
         if (v->getSel() == 3) { // Delivery site
             int maxFlow = edmondsKarp(&temp, superSource, v->getCode());
             double demand = sites.find(v->getCode())->second.getDemand();
             double deficit = demand - maxFlow;
-            if (deficit > 0){
+            if (deficit > 0) {
                 cout << "City: " << v->getCode() << '\t' << "Deficit: " << deficit << endl;
             }
         }
     }
 }
+
 void WaterSupplyManager::evaluatePumpingImpact(string pumpingToRemove) {
     Graph<string> temp = graph;
 
     // Find the reservoir vertex to remove
-    Vertex<string>* reservoir = temp.findVertex(pumpingToRemove);
+    Vertex<string> *reservoir = temp.findVertex(pumpingToRemove);
     if (reservoir == nullptr) {
-        // Reservoir not found, return empty set
+        cout << "Pumping station not found" << endl;
+        // Puping station not found, return empty set
         return;
     }
 
@@ -256,42 +259,44 @@ void WaterSupplyManager::evaluatePumpingImpact(string pumpingToRemove) {
 
     temp.addVertex(superSource);
     temp.addVertex(superSink);
-    for (auto vertex : temp.getVertexSet()){
-        if (vertex->getSel() == 1){
+    for (auto vertex: temp.getVertexSet()) {
+        if (vertex->getSel() == 1) {
             temp.addEdge("superSource", vertex->getCode(), INT_MAX);
         }
-        if (vertex->getSel() == 3){
+        if (vertex->getSel() == 3) {
             temp.addEdge(vertex->getCode(), "superSink", INT_MAX);
         }
     }
 
-    int completeMaxFlow = edmondsKarp(&temp,superSource, superSink);
+    int completeMaxFlow = edmondsKarp(&temp, superSource, superSink);
     cout << "The maximum flow of the full network is: " << completeMaxFlow << endl;
 
     // Run max flow algorithm for each delivery site
-    for (auto v : temp.getVertexSet()) {
+    for (auto v: temp.getVertexSet()) {
         if (v->getSel() == 3) { // Delivery site
             int maxFlow = edmondsKarp(&temp, superSource, v->getCode());
             double demand = sites.find(v->getCode())->second.getDemand();
             double deficit = demand - maxFlow;
-            if (deficit > 0){
+            if (deficit > 0) {
                 cout << "City: " << v->getCode() << '\t' << "Deficit: " << deficit << endl;
             }
         }
     }
 
 }
-void WaterSupplyManager::evaluateEdgeImpact(const string& source, const string& destination) {
+
+void WaterSupplyManager::evaluateEdgeImpact(const string &source, const string &destination) {
     // Find the vertices corresponding to the edge
     Graph<string> temp = graph;
-    Vertex<string>* sourceVertex = temp.findVertex(source);
-    Vertex<string>* destinationVertex = temp.findVertex(destination);
+    Vertex<string> *sourceVertex = temp.findVertex(source);
+    Vertex<string> *destinationVertex = temp.findVertex(destination);
 
     if (sourceVertex == nullptr || destinationVertex == nullptr) {
         // One of the vertices doesn't exist, handle the error as needed
+        cout << "One of the vertices doesn't exist" << endl;
         return;
     }
-    temp.removeEdge(sourceVertex->getCode(),destinationVertex->getCode());
+    temp.removeEdge(sourceVertex->getCode(), destinationVertex->getCode());
     // Remove the edge from the source vertex
     sourceVertex->removeEdge(destination);
 
@@ -300,25 +305,25 @@ void WaterSupplyManager::evaluateEdgeImpact(const string& source, const string& 
 
     temp.addVertex(superSource);
     temp.addVertex(superSink);
-    for (auto vertex : temp.getVertexSet()){
-        if (vertex->getSel() == 1){
+    for (auto vertex: temp.getVertexSet()) {
+        if (vertex->getSel() == 1) {
             temp.addEdge("superSource", vertex->getCode(), INT_MAX);
         }
-        if (vertex->getSel() == 3){
+        if (vertex->getSel() == 3) {
             temp.addEdge(vertex->getCode(), "superSink", INT_MAX);
         }
     }
 
-    int completeMaxFlow = edmondsKarp(&temp,superSource, superSink);
+    int completeMaxFlow = edmondsKarp(&temp, superSource, superSink);
     cout << "The maximum flow of the full network is: " << completeMaxFlow << endl;
 
     // Run max flow algorithm for each delivery site
-    for (auto v : temp.getVertexSet()) {
+    for (auto v: temp.getVertexSet()) {
         if (v->getSel() == 3) { // Delivery site
             int maxFlow = edmondsKarp(&temp, superSource, v->getCode());
             double demand = sites.find(v->getCode())->second.getDemand();
             double deficit = demand - maxFlow;
-            if (deficit > 0){
+            if (deficit > 0) {
                 cout << "City: " << v->getCode() << '\t' << "Deficit: " << deficit << endl;
             }
         }
