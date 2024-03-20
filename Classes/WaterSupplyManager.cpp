@@ -242,17 +242,25 @@ void WaterSupplyManager::evaluateReservoirImpact(string reservoirToRemove) {
     int completeMaxFlow = edmondsKarp(&temp, superSource, superSink);
     cout << "The maximum flow of the full network is: " << completeMaxFlow << endl;
 
-    // Run max flow algorithm for each delivery site
     for (auto v: temp.getVertexSet()) {
-        if (v->getSel() == 3) { // Delivery site
-            int maxFlow = edmondsKarp(&temp, superSource, v->getCode());
+        for (auto e: v->getAdj()) {
+            if (e->getDest()->getSel() == 3) {
+                e->getDest()->setFlow(e->getDest()->getFlow() + e->getFlow());
+            }
+        }
+    }
+
+    for (auto v: temp.getVertexSet()) {
+        if (v->getSel() == 3) {
+            int coverage = v->getFlow();
             double demand = sites.find(v->getCode())->second.getDemand();
-            double deficit = demand - maxFlow;
+            double deficit = demand - coverage;
             if (deficit > 0) {
                 cout << "City: " << v->getCode() << '\t' << "Deficit: " << deficit << endl;
             }
         }
     }
+
     cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowinohio-completeMaxFlow << endl;
 }
 
@@ -301,17 +309,25 @@ void WaterSupplyManager::evaluatePumpingImpact(string pumpingToRemove) {
     int completeMaxFlow = edmondsKarp(&temp, superSource, superSink);
     cout << "The maximum flow of the full network is: " << completeMaxFlow << endl;
 
-    // Run max flow algorithm for each delivery site
     for (auto v: temp.getVertexSet()) {
-        if (v->getSel() == 3) { // Delivery site
-            int maxFlow = edmondsKarp(&temp, superSource, v->getCode());
+        for (auto e: v->getAdj()) {
+            if (e->getDest()->getSel() == 3) {
+                e->getDest()->setFlow(e->getDest()->getFlow() + e->getFlow());
+            }
+        }
+    }
+
+    for (auto v: temp.getVertexSet()) {
+        if (v->getSel() == 3) {
+            int coverage = v->getFlow();
             double demand = sites.find(v->getCode())->second.getDemand();
-            double deficit = demand - maxFlow;
+            double deficit = demand - coverage;
             if (deficit > 0) {
                 cout << "City: " << v->getCode() << '\t' << "Deficit: " << deficit << endl;
             }
         }
     }
+
     cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowinohio-completeMaxFlow << endl;
 
 }
@@ -364,17 +380,25 @@ void WaterSupplyManager::evaluateEdgeImpact(const string &source, const string &
     int completeMaxFlow = edmondsKarp(&temp, superSource, superSink);
     cout << "The maximum flow of the full network is: " << completeMaxFlow << endl;
 
-    // Run max flow algorithm for each delivery site
     for (auto v: temp.getVertexSet()) {
-        if (v->getSel() == 3) { // Delivery site
-            int maxFlow = edmondsKarp(&temp, superSource, v->getCode());
+        for (auto e: v->getAdj()) {
+            if (e->getDest()->getSel() == 3) {
+                e->getDest()->setFlow(e->getDest()->getFlow() + e->getFlow());
+            }
+        }
+    }
+
+    for (auto v: temp.getVertexSet()) {
+        if (v->getSel() == 3) {
+            int coverage = v->getFlow();
             double demand = sites.find(v->getCode())->second.getDemand();
-            double deficit = demand - maxFlow;
+            double deficit = demand - coverage;
             if (deficit > 0) {
                 cout << "City: " << v->getCode() << '\t' << "Deficit: " << deficit << endl;
             }
         }
     }
+
     cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowinohio-completeMaxFlow << endl;
 }
 

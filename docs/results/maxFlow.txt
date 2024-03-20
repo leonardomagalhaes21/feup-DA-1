@@ -6,7 +6,7 @@ City: C_13	Max Flow: 120
 City: C_14	Max Flow: 465
 City: C_15	Max Flow: 12450
 City: C_16	Max Flow: 105
-City: C_17	Max Flow: 6050
+City: C_17	Max Flow: 5050
 City: C_18	Max Flow: 215
 City: C_19	Max Flow: 800
 City: C_2	Max Flow: 560
