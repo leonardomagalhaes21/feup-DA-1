@@ -9,10 +9,10 @@ Data::Data() {
     readSites("../dataset/Cities.csv");
     readPipes("../dataset/Pipes.csv");
 
-    //readReservoirs("../dataset/Madeira/Reservoirs_Madeira.csv");
-    //readStations("../dataset/Madeira/Stations_Madeira.csv");
-    //readSites("../dataset/Madeira/Cities_Madeira.csv");
-    //readPipes("../dataset/Madeira/Pipes_Madeira.csv");
+//    readReservoirs("../dataset/Madeira/Reservoirs_Madeira.csv");
+//    readStations("../dataset/Madeira/Stations_Madeira.csv");
+//    readSites("../dataset/Madeira/Cities_Madeira.csv");
+//    readPipes("../dataset/Madeira/Pipes_Madeira.csv");
 }
 
 const unordered_map<string, WaterReservoir> &Data::getReservoirs() const {
@@ -155,11 +155,11 @@ void Data::readPipes(const std::string &filename) {
     for (auto vertex: graph.getVertexSet()) {
         string s = vertex->getCode();
         string prefix = s.substr(0, s.find('_'));
-        if (prefix == "R") {
+        if (prefix == "R") { //watter reservoir
             vertex->setSel(1);
-        } else if (prefix == "PS") {
+        } else if (prefix == "PS") { //Pumping station
             vertex->setSel(2);
-        } else if (prefix == "C") {
+        } else if (prefix == "C") { //City
             vertex->setSel(3);
         } else {
             cerr << "There was an error reading the pipeline!" << endl;
