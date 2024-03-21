@@ -125,7 +125,8 @@ int WaterSupplyManager::pumpMaxFlow() {
     graph.addVertex(superSink);
     for (auto vertex: graph.getVertexSet()) {
         if (vertex->getSel() == 1) {
-            graph.addEdge("superSource", vertex->getCode(), INT_MAX);
+            int delivery = reservoirs.find(vertex->getCode())->second.getMaxDelivery();
+            graph.addEdge("superSource", vertex->getCode(), delivery);
         }
         if (vertex->getSel() == 3) {
             graph.addEdge(vertex->getCode(), "superSink", INT_MAX);
