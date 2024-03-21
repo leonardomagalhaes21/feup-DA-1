@@ -22,7 +22,7 @@ public:
 
     void evaluatePumpingImpact(std::string pumpingToRemove);
 
-    void evaluateReservoirImpact( std::string reservoirToRemove);
+    void evaluateReservoirImpact(std::string reservoirToRemove);
 
     void evaluateEdgeImpact(const std::string &source, const std::string &destination);
 

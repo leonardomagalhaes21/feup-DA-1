@@ -7,8 +7,11 @@
 class Menu {
 public:
     Menu();
+
     void showMenu();
+
     static void drawTop();
+
     static void drawBottom();
 
 };

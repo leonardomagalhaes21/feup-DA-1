@@ -262,7 +262,8 @@ void WaterSupplyManager::evaluateReservoirImpact(string reservoirToRemove) {
         }
     }
 
-    cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowinohio-completeMaxFlow << endl;
+    cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowinohio - completeMaxFlow
+         << endl;
 }
 
 void WaterSupplyManager::evaluatePumpingImpact(string pumpingToRemove) {
@@ -329,7 +330,8 @@ void WaterSupplyManager::evaluatePumpingImpact(string pumpingToRemove) {
         }
     }
 
-    cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowinohio-completeMaxFlow << endl;
+    cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowinohio - completeMaxFlow
+         << endl;
 
 }
 
@@ -400,6 +402,7 @@ void WaterSupplyManager::evaluateEdgeImpact(const string &source, const string &
         }
     }
 
-    cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowinohio-completeMaxFlow << endl;
+    cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowinohio - completeMaxFlow
+         << endl;
 }
 
