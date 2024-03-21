@@ -315,12 +315,12 @@ int Vertex<T>::getSel() const {
 }
 
 template<class T>
-void Vertex<T>::setFlow(int flow){
+void Vertex<T>::setFlow(int flow) {
     this->flow = flow;
 }
 
 template<class T>
-int Vertex<T>::getFlow() const{
+int Vertex<T>::getFlow() const {
     return this->flow;
 }
 
