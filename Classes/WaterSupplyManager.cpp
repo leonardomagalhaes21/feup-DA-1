@@ -129,7 +129,8 @@ int WaterSupplyManager::pumpMaxFlow() {
             graph.addEdge("superSource", vertex->getCode(), delivery);
         }
         if (vertex->getSel() == 3) {
-            graph.addEdge(vertex->getCode(), "superSink", INT_MAX);
+            int demand = sites.find(vertex->getCode())->second.getDemand();
+            graph.addEdge(vertex->getCode(), "superSink", demand);
         }
     }
 
@@ -207,10 +208,12 @@ void WaterSupplyManager::evaluateReservoirImpact(string reservoirToRemove) {
     temp1.addVertex(superSink1);
     for (auto vertex: temp1.getVertexSet()) {
         if (vertex->getSel() == 1) {
-            temp1.addEdge("superSource", vertex->getCode(), INT_MAX);
+            int delivery = reservoirs.find(vertex->getCode())->second.getMaxDelivery();
+            temp1.addEdge("superSource", vertex->getCode(), delivery);
         }
         if (vertex->getSel() == 3) {
-            temp1.addEdge(vertex->getCode(), "superSink", INT_MAX);
+            int demand = sites.find(vertex->getCode())->second.getDemand();
+            temp1.addEdge(vertex->getCode(), "superSink", demand);
         }
     }
     int completeMaxFlowinohio = edmondsKarp(&temp1, superSource1, superSink1);
@@ -233,10 +236,12 @@ void WaterSupplyManager::evaluateReservoirImpact(string reservoirToRemove) {
     temp.addVertex(superSink);
     for (auto vertex: temp.getVertexSet()) {
         if (vertex->getSel() == 1) {
-            temp.addEdge("superSource", vertex->getCode(), INT_MAX);
+            int delivery = reservoirs.find(vertex->getCode())->second.getMaxDelivery();
+            temp.addEdge("superSource", vertex->getCode(), delivery);
         }
         if (vertex->getSel() == 3) {
-            temp.addEdge(vertex->getCode(), "superSink", INT_MAX);
+            int demand = sites.find(vertex->getCode())->second.getDemand();
+            temp.addEdge(vertex->getCode(), "superSink", demand);
         }
     }
 
@@ -276,10 +281,12 @@ void WaterSupplyManager::evaluatePumpingImpact(string pumpingToRemove) {
     temp1.addVertex(superSink1);
     for (auto vertex: temp1.getVertexSet()) {
         if (vertex->getSel() == 1) {
-            temp1.addEdge("superSource", vertex->getCode(), INT_MAX);
+            int delivery = reservoirs.find(vertex->getCode())->second.getMaxDelivery();
+            temp1.addEdge("superSource", vertex->getCode(), delivery);
         }
         if (vertex->getSel() == 3) {
-            temp1.addEdge(vertex->getCode(), "superSink", INT_MAX);
+            int demand = sites.find(vertex->getCode())->second.getDemand();
+            temp1.addEdge(vertex->getCode(), "superSink", demand);
         }
     }
     int completeMaxFlowinohio = edmondsKarp(&temp1, superSource1, superSink1);
@@ -301,10 +308,12 @@ void WaterSupplyManager::evaluatePumpingImpact(string pumpingToRemove) {
     temp.addVertex(superSink);
     for (auto vertex: temp.getVertexSet()) {
         if (vertex->getSel() == 1) {
-            temp.addEdge("superSource", vertex->getCode(), INT_MAX);
+            int delivery = reservoirs.find(vertex->getCode())->second.getMaxDelivery();
+            temp.addEdge("superSource", vertex->getCode(), delivery);
         }
         if (vertex->getSel() == 3) {
-            temp.addEdge(vertex->getCode(), "superSink", INT_MAX);
+            int demand = sites.find(vertex->getCode())->second.getDemand();
+            temp.addEdge(vertex->getCode(), "superSink", demand);
         }
     }
 
@@ -346,10 +355,12 @@ void WaterSupplyManager::evaluateEdgeImpact(const string &source, const string &
     temp1.addVertex(superSink1);
     for (auto vertex: temp1.getVertexSet()) {
         if (vertex->getSel() == 1) {
-            temp1.addEdge("superSource", vertex->getCode(), INT_MAX);
+            int delivery = reservoirs.find(vertex->getCode())->second.getMaxDelivery();
+            temp1.addEdge("superSource", vertex->getCode(), delivery);
         }
         if (vertex->getSel() == 3) {
-            temp1.addEdge(vertex->getCode(), "superSink", INT_MAX);
+            int demand = sites.find(vertex->getCode())->second.getDemand();
+            temp1.addEdge(vertex->getCode(), "superSink", demand);
         }
     }
     int completeMaxFlowinohio = edmondsKarp(&temp1, superSource1, superSink1);
@@ -373,10 +384,12 @@ void WaterSupplyManager::evaluateEdgeImpact(const string &source, const string &
     temp.addVertex(superSink);
     for (auto vertex: temp.getVertexSet()) {
         if (vertex->getSel() == 1) {
-            temp.addEdge("superSource", vertex->getCode(), INT_MAX);
+            int delivery = reservoirs.find(vertex->getCode())->second.getMaxDelivery();
+            temp.addEdge("superSource", vertex->getCode(), delivery);
         }
         if (vertex->getSel() == 3) {
-            temp.addEdge(vertex->getCode(), "superSink", INT_MAX);
+            int demand = sites.find(vertex->getCode())->second.getDemand();
+            temp.addEdge(vertex->getCode(), "superSink", demand);
         }
     }
 
