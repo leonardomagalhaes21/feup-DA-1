@@ -216,7 +216,7 @@ void WaterSupplyManager::evaluateReservoirImpact(string reservoirToRemove) {
             temp1.addEdge(vertex->getCode(), "superSink", demand);
         }
     }
-    int completeMaxFlowinohio = edmondsKarp(&temp1, superSource1, superSink1);
+    int completeMaxFlowFirst = edmondsKarp(&temp1, superSource1, superSink1);
 
     // Find the reservoir vertex to remove
     Vertex<string> *reservoir = temp.findVertex(reservoirToRemove);
@@ -267,7 +267,7 @@ void WaterSupplyManager::evaluateReservoirImpact(string reservoirToRemove) {
         }
     }
 
-    cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowinohio - completeMaxFlow
+    cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowFirst - completeMaxFlow
          << endl;
 }
 
@@ -289,7 +289,7 @@ void WaterSupplyManager::evaluatePumpingImpact(string pumpingToRemove) {
             temp1.addEdge(vertex->getCode(), "superSink", demand);
         }
     }
-    int completeMaxFlowinohio = edmondsKarp(&temp1, superSource1, superSink1);
+    int completeMaxFlowFirst = edmondsKarp(&temp1, superSource1, superSink1);
     // Find the reservoir vertex to remove
     Vertex<string> *pumpingStation = temp.findVertex(pumpingToRemove);
     if (pumpingStation == nullptr || pumpingStation->getSel() != 2) {
@@ -339,7 +339,7 @@ void WaterSupplyManager::evaluatePumpingImpact(string pumpingToRemove) {
         }
     }
 
-    cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowinohio - completeMaxFlow
+    cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowFirst - completeMaxFlow
          << endl;
 
 }
@@ -363,7 +363,7 @@ void WaterSupplyManager::evaluateEdgeImpact(const string &source, const string &
             temp1.addEdge(vertex->getCode(), "superSink", demand);
         }
     }
-    int completeMaxFlowinohio = edmondsKarp(&temp1, superSource1, superSink1);
+    int completeMaxFlowFirst = edmondsKarp(&temp1, superSource1, superSink1);
 
     Vertex<string> *sourceVertex = temp.findVertex(source);
     Vertex<string> *destinationVertex = temp.findVertex(destination);
@@ -415,7 +415,7 @@ void WaterSupplyManager::evaluateEdgeImpact(const string &source, const string &
         }
     }
 
-    cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowinohio - completeMaxFlow
+    cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowFirst - completeMaxFlow
          << endl;
 }
 
