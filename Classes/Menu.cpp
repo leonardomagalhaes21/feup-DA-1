@@ -28,6 +28,7 @@ void Menu::showMenu() {
         drawTop();
         cout << "| 1. Basic Service Metrics                         |" << endl;
         cout << "| 2. Reliability and Sensitivity to Failures       |" << endl;
+        cout << "| 3. Reset Water Supply System                     |" << endl;
         cout << "| Q. Exit                                          |" << endl;
         drawBottom();
         cout << "Choose an option: ";
@@ -116,6 +117,12 @@ void Menu::showMenu() {
                 };
                 break;
 
+            }
+            case '3' : {
+                cout << "Water Supply System reset successfully ";
+                Data data = Data();
+                wsm = WaterSupplyManager(data);
+                break;
             }
             case 'Q' : {
                 flag = false;
