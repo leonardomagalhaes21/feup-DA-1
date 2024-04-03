@@ -20,13 +20,13 @@ void Menu::drawBottom() {
 
 void Menu::showMenu() {
     char key;
-    bool flagg = true;
+    bool flag2 = true;
     bool flag = true;
 
     WaterSupplyManager wsm;
     string system;
 
-    while(flagg){
+    while(flag2){
         drawTop();
         cout << "| 1. Portugal's continental water supply network   |" << endl;
         cout << "| 2. Madeira water supply network                  |" << endl;
@@ -38,14 +38,14 @@ void Menu::showMenu() {
                 system="continental";
                 Data d = Data(system);
                 wsm = WaterSupplyManager(d);
-                flagg=false;
+                flag2=false;
                 break;
             }
             case '2': {
                 system="madeira";
                 Data d = Data(system);
                 wsm = WaterSupplyManager(d);
-                flagg=false;
+                flag2=false;
                 break;
             }
             default: {
@@ -134,7 +134,7 @@ void Menu::showMenu() {
                         cin >> source;
                         cout << "Enter the code of the destination: ";
                         cin >> destination;
-                        wsm.evaluateEdgeImpact(source, destination);
+                        wsm.evaluateEdgeRemoval(source, destination);
                         break;
                     }
 
@@ -156,7 +156,7 @@ void Menu::showMenu() {
                 break;
             }
             case 'Q' : {
-                flag = false;
+                //flag = false;
                 break;
             }
             default: {
