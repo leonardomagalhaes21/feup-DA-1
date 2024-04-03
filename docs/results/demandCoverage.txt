@@ -1,1 +1,1 @@
-City: C_6	Deficit: 76
+City: C_20	Deficit: 68
