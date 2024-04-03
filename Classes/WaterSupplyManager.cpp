@@ -198,65 +198,39 @@ void WaterSupplyManager::demandCoverage() {
     out.close();
 }
 
-void WaterSupplyManager::evaluateReservoirImpact(string reservoirToRemove) {
-    Graph<string> temp = graph;
-    Graph<string> temp1 = graph;
-    string superSource1 = "superSource";
-    string superSink1 = "superSink";
+void WaterSupplyManager::evaluateVertexRemoval(string vertex) {
+    int completeMaxFlowFirst = pumpMaxFlow();
 
-    temp1.addVertex(superSource1);
-    temp1.addVertex(superSink1);
-    for (auto vertex: temp1.getVertexSet()) {
-        if (vertex->getSel() == 1) {
-            int delivery = reservoirs.find(vertex->getCode())->second.getMaxDelivery();
-            temp1.addEdge("superSource", vertex->getCode(), delivery);
-        }
-        if (vertex->getSel() == 3) {
-            int demand = sites.find(vertex->getCode())->second.getDemand();
-            temp1.addEdge(vertex->getCode(), "superSink", demand);
-        }
-    }
-    int completeMaxFlowFirst = edmondsKarp(&temp1, superSource1, superSink1);
+    // Find the ver vertex to remove
+    Vertex<string> *ver = graph.findVertex(vertex);
+    cout << ver->getSel() << ver->getCode();
+    if (ver == nullptr || (ver->getSel() != 1 && ver->getSel() != 2)) {
 
-    // Find the reservoir vertex to remove
-    Vertex<string> *reservoir = temp.findVertex(reservoirToRemove);
-    if (reservoir == nullptr || reservoir->getSel() != 1) {
-        cout << "Reservoir not found" << endl;
+        cout << "Vertex not found" << endl;
         // Reservoir not found, return empty set
         return;
     }
 
-    // Remove outgoing edges from the reservoir
-    reservoir->removeOutgoingEdges();
+    // Remove outgoing edges from the ver
+    resetFlow();
 
-    string superSource = "superSource";
-    string superSink = "superSink";
+    graph.removeVertex(vertex);
 
-    temp.addVertex(superSource);
-    temp.addVertex(superSink);
-    for (auto vertex: temp.getVertexSet()) {
-        if (vertex->getSel() == 1) {
-            int delivery = reservoirs.find(vertex->getCode())->second.getMaxDelivery();
-            temp.addEdge("superSource", vertex->getCode(), delivery);
-        }
-        if (vertex->getSel() == 3) {
-            int demand = sites.find(vertex->getCode())->second.getDemand();
-            temp.addEdge(vertex->getCode(), "superSink", demand);
-        }
+    if(ver->getSel() == 1){
+        reservoirs.erase(vertex);
+    }
+    else if(ver->getSel() == 2){
+        stations.erase(vertex);
+    }
+    else{
+        cout << "Vertex not found!" << endl;
     }
 
-    int completeMaxFlow = edmondsKarp(&temp, superSource, superSink);
+    int completeMaxFlow =pumpMaxFlow();
     cout << "The maximum flow of the full network is: " << completeMaxFlow << endl;
 
-    for (auto v: temp.getVertexSet()) {
-        for (auto e: v->getAdj()) {
-            if (e->getDest()->getSel() == 3) {
-                e->getDest()->setFlow(e->getDest()->getFlow() + e->getFlow());
-            }
-        }
-    }
 
-    for (auto v: temp.getVertexSet()) {
+    for (auto v: graph.getVertexSet()) {
         if (v->getSel() == 3) {
             int coverage = v->getFlow();
             double demand = sites.find(v->getCode())->second.getDemand();
@@ -267,144 +241,34 @@ void WaterSupplyManager::evaluateReservoirImpact(string reservoirToRemove) {
         }
     }
 
-    cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowFirst - completeMaxFlow
-         << endl;
+    resetFlow();
+
+
+    cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowFirst - completeMaxFlow << endl;
 }
 
-void WaterSupplyManager::evaluatePumpingImpact(string pumpingToRemove) {
-    Graph<string> temp = graph;
-    Graph<string> temp1 = graph;
-    string superSource1 = "superSource";
-    string superSink1 = "superSink";
-
-    temp1.addVertex(superSource1);
-    temp1.addVertex(superSink1);
-    for (auto vertex: temp1.getVertexSet()) {
-        if (vertex->getSel() == 1) {
-            int delivery = reservoirs.find(vertex->getCode())->second.getMaxDelivery();
-            temp1.addEdge("superSource", vertex->getCode(), delivery);
-        }
-        if (vertex->getSel() == 3) {
-            int demand = sites.find(vertex->getCode())->second.getDemand();
-            temp1.addEdge(vertex->getCode(), "superSink", demand);
-        }
-    }
-    int completeMaxFlowFirst = edmondsKarp(&temp1, superSource1, superSink1);
-    // Find the reservoir vertex to remove
-    Vertex<string> *pumpingStation = temp.findVertex(pumpingToRemove);
-    if (pumpingStation == nullptr || pumpingStation->getSel() != 2) {
-        cout << "Pumping station not found" << endl;
-        // Puping station not found, return empty set
-        return;
-    }
-
-    // Remove outgoing edges from the pumping station
-    pumpingStation->removeOutgoingEdges();
-
-    string superSource = "superSource";
-    string superSink = "superSink";
-
-    temp.addVertex(superSource);
-    temp.addVertex(superSink);
-    for (auto vertex: temp.getVertexSet()) {
-        if (vertex->getSel() == 1) {
-            int delivery = reservoirs.find(vertex->getCode())->second.getMaxDelivery();
-            temp.addEdge("superSource", vertex->getCode(), delivery);
-        }
-        if (vertex->getSel() == 3) {
-            int demand = sites.find(vertex->getCode())->second.getDemand();
-            temp.addEdge(vertex->getCode(), "superSink", demand);
-        }
-    }
-
-    int completeMaxFlow = edmondsKarp(&temp, superSource, superSink);
-    cout << "The maximum flow of the full network is: " << completeMaxFlow << endl;
-
-    for (auto v: temp.getVertexSet()) {
-        for (auto e: v->getAdj()) {
-            if (e->getDest()->getSel() == 3) {
-                e->getDest()->setFlow(e->getDest()->getFlow() + e->getFlow());
-            }
-        }
-    }
-
-    for (auto v: temp.getVertexSet()) {
-        if (v->getSel() == 3) {
-            int coverage = v->getFlow();
-            double demand = sites.find(v->getCode())->second.getDemand();
-            double deficit = demand - coverage;
-            if (deficit > 0) {
-                cout << "City: " << v->getCode() << '\t' << "Deficit: " << deficit << endl;
-            }
-        }
-    }
-
-    cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowFirst - completeMaxFlow
-         << endl;
-
-}
 
 void WaterSupplyManager::evaluateEdgeImpact(const string &source, const string &destination) {
-    // Find the vertices corresponding to the edge
-    Graph<string> temp = graph;
-    Graph<string> temp1 = graph;
-    string superSource1 = "superSource";
-    string superSink1 = "superSink";
 
-    temp1.addVertex(superSource1);
-    temp1.addVertex(superSink1);
-    for (auto vertex: temp1.getVertexSet()) {
-        if (vertex->getSel() == 1) {
-            int delivery = reservoirs.find(vertex->getCode())->second.getMaxDelivery();
-            temp1.addEdge("superSource", vertex->getCode(), delivery);
-        }
-        if (vertex->getSel() == 3) {
-            int demand = sites.find(vertex->getCode())->second.getDemand();
-            temp1.addEdge(vertex->getCode(), "superSink", demand);
-        }
-    }
-    int completeMaxFlowFirst = edmondsKarp(&temp1, superSource1, superSink1);
-
-    Vertex<string> *sourceVertex = temp.findVertex(source);
-    Vertex<string> *destinationVertex = temp.findVertex(destination);
+    int completeMaxFlowFirst = pumpMaxFlow();
+    resetFlow();
+    Vertex<string> *sourceVertex = graph.findVertex(source);
+    Vertex<string> *destinationVertex = graph.findVertex(destination);
 
     if (sourceVertex == nullptr || destinationVertex == nullptr) {
         // One of the vertices doesn't exist, handle the error as needed
         cout << "One of the vertices doesn't exist" << endl;
         return;
     }
-    temp.removeEdge(sourceVertex->getCode(), destinationVertex->getCode());
-    // Remove the edge from the source vertex
-    sourceVertex->removeEdge(destination);
 
-    string superSource = "superSource";
-    string superSink = "superSink";
 
-    temp.addVertex(superSource);
-    temp.addVertex(superSink);
-    for (auto vertex: temp.getVertexSet()) {
-        if (vertex->getSel() == 1) {
-            int delivery = reservoirs.find(vertex->getCode())->second.getMaxDelivery();
-            temp.addEdge("superSource", vertex->getCode(), delivery);
-        }
-        if (vertex->getSel() == 3) {
-            int demand = sites.find(vertex->getCode())->second.getDemand();
-            temp.addEdge(vertex->getCode(), "superSink", demand);
-        }
-    }
+    graph.removeEdge(source, destination);
+    graph.removeEdge(destination,source);
 
-    int completeMaxFlow = edmondsKarp(&temp, superSource, superSink);
+    int completeMaxFlow = pumpMaxFlow();
     cout << "The maximum flow of the full network is: " << completeMaxFlow << endl;
 
-    for (auto v: temp.getVertexSet()) {
-        for (auto e: v->getAdj()) {
-            if (e->getDest()->getSel() == 3) {
-                e->getDest()->setFlow(e->getDest()->getFlow() + e->getFlow());
-            }
-        }
-    }
-
-    for (auto v: temp.getVertexSet()) {
+    for (auto v: graph.getVertexSet()) {
         if (v->getSel() == 3) {
             int coverage = v->getFlow();
             double demand = sites.find(v->getCode())->second.getDemand();
@@ -415,7 +279,9 @@ void WaterSupplyManager::evaluateEdgeImpact(const string &source, const string &
         }
     }
 
-    cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowFirst - completeMaxFlow
-         << endl;
+    resetFlow();
+
+
+    cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowFirst - completeMaxFlow << endl;
 }
 

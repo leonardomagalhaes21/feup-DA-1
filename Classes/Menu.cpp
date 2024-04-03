@@ -86,7 +86,7 @@ void Menu::showMenu() {
                         string reservoir;
                         cout << "Enter the code of the reservoir (ex:R_1,R_2...): ";
                         cin >> reservoir;
-                        wsm.evaluateReservoirImpact(reservoir);
+                        wsm.evaluateVertexRemoval(reservoir);
 
                         break;
                     }
@@ -94,7 +94,7 @@ void Menu::showMenu() {
                         string pumpingStation;
                         cout << "Enter the code of the pumping station (ex:PS_1,PS_2...): ";
                         cin >> pumpingStation;
-                        wsm.evaluatePumpingImpact(pumpingStation);
+                        wsm.evaluateVertexRemoval(pumpingStation);
                         break;
                     }
                     case '3': {
