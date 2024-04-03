@@ -209,9 +209,11 @@ void WaterSupplyManager::evaluateVertexRemoval(string vertex) {
     std::vector<std::pair<std::string, int>> first;
 
     for (const auto& v : graph.getVertexSet()) {
+        if(v->getSel()==3){
+            auto p = std::make_pair(v->getCode(), v->getFlow());
+            first.push_back(p);
+        }
 
-        auto p = std::make_pair(v->getCode(), v->getFlow());
-        first.push_back(p);
     }
 
     // Find the ver vertex to remove
@@ -244,9 +246,11 @@ void WaterSupplyManager::evaluateVertexRemoval(string vertex) {
     std::vector<std::pair<std::string, int>> second;
 
     for (const auto& v : graph.getVertexSet()) {
+        if(v->getSel()==3){
+            auto p = std::make_pair(v->getCode(), v->getFlow());
+            second.push_back(p);
+        }
 
-        auto p = std::make_pair(v->getCode(), v->getFlow());
-        second.push_back(p);
     }
 
     for (auto v: graph.getVertexSet()) {
@@ -288,9 +292,10 @@ void WaterSupplyManager::evaluateEdgeImpact(const string &source, const string &
     std::vector<std::pair<std::string, int>> first;
 
     for (const auto& v : graph.getVertexSet()) {
-
-        auto p = std::make_pair(v->getCode(), v->getFlow());
-        first.push_back(p);
+        if(v->getSel()==3){
+            auto p = std::make_pair(v->getCode(), v->getFlow());
+            first.push_back(p);
+        }
     }
 
     resetFlow();
@@ -313,9 +318,11 @@ void WaterSupplyManager::evaluateEdgeImpact(const string &source, const string &
     std::vector<std::pair<std::string, int>> second;
 
     for (const auto& v : graph.getVertexSet()) {
+        if(v->getSel()==3){
+            auto p = std::make_pair(v->getCode(), v->getFlow());
+            second.push_back(p);
+        }
 
-        auto p = std::make_pair(v->getCode(), v->getFlow());
-        second.push_back(p);
     }
 
     for (auto v: graph.getVertexSet()) {
