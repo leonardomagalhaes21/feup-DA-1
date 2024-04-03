@@ -206,6 +206,13 @@ void WaterSupplyManager::demandCoverage() {
 
 void WaterSupplyManager::evaluateVertexRemoval(string vertex) {
     int completeMaxFlowFirst = pumpMaxFlow();
+    std::vector<std::pair<std::string, int>> first;
+
+    for (const auto& v : graph.getVertexSet()) {
+
+        auto p = std::make_pair(v->getCode(), v->getFlow());
+        first.push_back(p);
+    }
 
     // Find the ver vertex to remove
     Vertex<string> *ver = graph.findVertex(vertex);
@@ -234,7 +241,13 @@ void WaterSupplyManager::evaluateVertexRemoval(string vertex) {
 
     int completeMaxFlow =pumpMaxFlow();
     cout << "The maximum flow of the full network is: " << completeMaxFlow << endl;
+    std::vector<std::pair<std::string, int>> second;
 
+    for (const auto& v : graph.getVertexSet()) {
+
+        auto p = std::make_pair(v->getCode(), v->getFlow());
+        second.push_back(p);
+    }
 
     for (auto v: graph.getVertexSet()) {
         if (v->getSel() == 3) {
@@ -247,16 +260,39 @@ void WaterSupplyManager::evaluateVertexRemoval(string vertex) {
         }
     }
 
+    cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowFirst - completeMaxFlow << "\n" <<  endl;
+    if(completeMaxFlowFirst - completeMaxFlow ==0){
+        cout << "No cities were affected" << endl;
+    }
+
+    for (auto v: second) {
+        for (auto vv: first){
+            if (v.first == vv.first) {
+                double difference = vv.second - v.second;
+                if (difference > 0) {
+                    cout << "City: " << vv.first << " before had " <<  vv.second <<  endl;
+                    cout << "Now has " <<  v.second << "\n" <<  endl;
+                }
+            }
+        }
+    }
+
     resetFlow();
 
-
-    cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowFirst - completeMaxFlow << endl;
 }
 
 
 void WaterSupplyManager::evaluateEdgeImpact(const string &source, const string &destination) {
 
     int completeMaxFlowFirst = pumpMaxFlow();
+    std::vector<std::pair<std::string, int>> first;
+
+    for (const auto& v : graph.getVertexSet()) {
+
+        auto p = std::make_pair(v->getCode(), v->getFlow());
+        first.push_back(p);
+    }
+
     resetFlow();
     Vertex<string> *sourceVertex = graph.findVertex(source);
     Vertex<string> *destinationVertex = graph.findVertex(destination);
@@ -274,6 +310,14 @@ void WaterSupplyManager::evaluateEdgeImpact(const string &source, const string &
     int completeMaxFlow = pumpMaxFlow();
     cout << "The maximum flow of the full network is: " << completeMaxFlow << endl;
 
+    std::vector<std::pair<std::string, int>> second;
+
+    for (const auto& v : graph.getVertexSet()) {
+
+        auto p = std::make_pair(v->getCode(), v->getFlow());
+        second.push_back(p);
+    }
+
     for (auto v: graph.getVertexSet()) {
         if (v->getSel() == 3) {
             int coverage = v->getFlow();
@@ -285,9 +329,24 @@ void WaterSupplyManager::evaluateEdgeImpact(const string &source, const string &
         }
     }
 
+    cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowFirst - completeMaxFlow << "\n" << endl;
+    if(completeMaxFlowFirst - completeMaxFlow ==0){
+        cout << "No cities were affected" << endl;
+    }
+
+    for (auto v: second) {
+        for (auto vv: first){
+            if (v.first == vv.first) {
+                double difference = vv.second - v.second;
+                if (difference > 0) {
+                    cout << "City: " << vv.first << " before had " <<  vv.second << endl;
+                    cout << "Now has " << v.second << "\n" <<  endl;
+                }
+            }
+        }
+    }
+
     resetFlow();
 
-
-    cout << "The difference in total maximum flow of the whole network is: " << completeMaxFlowFirst - completeMaxFlow << endl;
 }
 
