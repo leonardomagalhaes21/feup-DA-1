@@ -116,6 +116,12 @@ WaterSupplyManager::WaterSupplyManager(const Data &d) {
     sites = d.getSites();
     graph = d.getGraph();
 }
+WaterSupplyManager::WaterSupplyManager() {
+    reservoirs = {};
+    stations = {};
+    sites = {};
+    graph = {};
+}
 
 int WaterSupplyManager::pumpMaxFlow() {
     string superSource = "superSource";
