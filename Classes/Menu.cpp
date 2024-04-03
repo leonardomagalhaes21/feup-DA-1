@@ -19,11 +19,42 @@ void Menu::drawBottom() {
 }
 
 void Menu::showMenu() {
-    Data d = Data();
-    WaterSupplyManager wsm = WaterSupplyManager(d);
-
     char key;
+    bool flagg = true;
     bool flag = true;
+
+    WaterSupplyManager wsm;
+    string system;
+
+    while(flagg){
+        drawTop();
+        cout << "| 1. Portugal's continental water supply network   |" << endl;
+        cout << "| 2. Madeira water supply network                  |" << endl;
+        drawBottom();
+        cout << "Choose an option: ";
+        cin >> key;
+        switch (key) {
+            case '1': {
+                system="continental";
+                Data d = Data(system);
+                wsm = WaterSupplyManager(d);
+                flagg=false;
+                break;
+            }
+            case '2': {
+                system="madeira";
+                Data d = Data(system);
+                wsm = WaterSupplyManager(d);
+                flagg=false;
+                break;
+            }
+            default: {
+                cout << endl << "Invalid option!" << endl;
+                break;
+            }
+        }
+    }
+
     while (flag) {
         drawTop();
         cout << "| 1. Basic Service Metrics                         |" << endl;
@@ -120,7 +151,7 @@ void Menu::showMenu() {
             }
             case '3' : {
                 cout << "Water Supply System reset successfully ";
-                Data data = Data();
+                Data data = Data(system);
                 wsm = WaterSupplyManager(data);
                 break;
             }

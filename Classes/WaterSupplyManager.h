@@ -10,6 +10,8 @@
 
 class WaterSupplyManager {
 public:
+    WaterSupplyManager();
+
     WaterSupplyManager(const Data &d);
 
     void maxFlowToCities();

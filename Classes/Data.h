@@ -14,7 +14,7 @@
 
 class Data {
 public:
-    Data();
+    Data(std::string s);
 
     const std::unordered_map<std::string, WaterReservoir> &getReservoirs() const;
 
