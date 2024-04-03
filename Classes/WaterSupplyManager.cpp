@@ -6,7 +6,7 @@ using namespace std;
 
 // Function to test the given vertex 'w' and visit it if conditions are met
 template<class T>
-void testAndVisit(std::queue<Vertex<T> *> &q, Edge<T> *e, Vertex<T> *w, int residual) {
+void testAndVisit(queue<Vertex<T> *> &q, Edge<T> *e, Vertex<T> *w, int residual) {
 // Check if the vertex 'w' is not visited and there is residual capacity
     if (!w->isVisited() && residual > 0) {
 // Mark 'w' as visited, set the path through which it was reached, and enqueue it
@@ -25,7 +25,7 @@ bool findAugmentingPath(Graph<T> *g, Vertex<T> *s, Vertex<T> *t) {
     }
 // Mark the source vertex as visited and enqueue it
     s->setVisited(true);
-    std::queue<Vertex<T> *> q;
+    queue<Vertex<T> *> q;
     q.push(s);
 // BFS to find an augmenting path
     while (!q.empty() && !t->isVisited()) {
@@ -52,10 +52,10 @@ double findMinResidualAlongPath(Vertex<T> *s, Vertex<T> *t) {
     for (auto v = t; v != s;) {
         auto e = v->getPath();
         if (e->getDest() == v) {
-            f = std::min(f, e->getWeight() - e->getFlow());
+            f = min(f, e->getWeight() - e->getFlow());
             v = e->getOrig();
         } else {
-            f = std::min(f, e->getFlow());
+            f = min(f, e->getFlow());
             v = e->getDest();
         }
     }
@@ -88,7 +88,7 @@ int edmondsKarp(Graph<T> *g, T source, T target) {
     Vertex<T> *t = g->findVertex(target);
 // Validate source and target vertices
     if (s == nullptr || t == nullptr || s == t)
-        throw std::logic_error("Invalid source and/or target vertex");
+        throw logic_error("Invalid source and/or target vertex");
 // Initialize flow on all edges to 0
     for (auto v: g->getVertexSet()) {
         for (auto e: v->getAdj()) {
@@ -207,11 +207,11 @@ void WaterSupplyManager::demandCoverage() {
 
 void WaterSupplyManager::evaluateVertexRemoval(string vertex) {
     int completeMaxFlowFirst = pumpMaxFlow();
-    std::vector<std::pair<std::string, int>> first;
+    vector<pair<string, int>> first;
 
     for (const auto &v: graph.getVertexSet()) {
         if (v->getSel() == 3) {
-            auto p = std::make_pair(v->getCode(), v->getFlow());
+            auto p = make_pair(v->getCode(), v->getFlow());
             first.push_back(p);
         }
 
@@ -242,11 +242,11 @@ void WaterSupplyManager::evaluateVertexRemoval(string vertex) {
 
     int completeMaxFlow = pumpMaxFlow();
     cout << "The maximum flow of the full network is: " << completeMaxFlow << endl;
-    std::vector<std::pair<std::string, int>> second;
+    vector<pair<string, int>> second;
 
     for (const auto &v: graph.getVertexSet()) {
         if (v->getSel() == 3) {
-            auto p = std::make_pair(v->getCode(), v->getFlow());
+            auto p = make_pair(v->getCode(), v->getFlow());
             second.push_back(p);
         }
 
@@ -269,13 +269,13 @@ void WaterSupplyManager::evaluateVertexRemoval(string vertex) {
         cout << "No cities were affected" << endl;
     }
 
-    for (auto v: second) {
-        for (auto vv: first) {
-            if (v.first == vv.first) {
-                double difference = vv.second - v.second;
+    for (const auto& a: second) {
+        for (const auto& b: first) {
+            if (a.first == b.first) {
+                double difference = b.second - a.second;
                 if (difference > 0) {
-                    cout << "City: " << vv.first << " before had " << vv.second << endl;
-                    cout << "Now has " << v.second << "\n" << endl;
+                    cout << "City: " << b.first << " before had " << b.second << endl;
+                    cout << "Now has " << a.second << "\n" << endl;
                 }
             }
         }
@@ -286,14 +286,14 @@ void WaterSupplyManager::evaluateVertexRemoval(string vertex) {
 }
 
 
-void WaterSupplyManager::evaluateEdgeImpact(const string &source, const string &destination) {
+void WaterSupplyManager::evaluateEdgeRemoval(const string &source, const string &destination) {
 
     int completeMaxFlowFirst = pumpMaxFlow();
-    std::vector<std::pair<std::string, int>> first;
+    vector<pair<string, int>> first;
 
     for (const auto &v: graph.getVertexSet()) {
         if (v->getSel() == 3) {
-            auto p = std::make_pair(v->getCode(), v->getFlow());
+            auto p = make_pair(v->getCode(), v->getFlow());
             first.push_back(p);
         }
     }
@@ -315,11 +315,11 @@ void WaterSupplyManager::evaluateEdgeImpact(const string &source, const string &
     int completeMaxFlow = pumpMaxFlow();
     cout << "The maximum flow of the full network is: " << completeMaxFlow << endl;
 
-    std::vector<std::pair<std::string, int>> second;
+    vector<pair<string, int>> second;
 
     for (const auto &v: graph.getVertexSet()) {
         if (v->getSel() == 3) {
-            auto p = std::make_pair(v->getCode(), v->getFlow());
+            auto p = make_pair(v->getCode(), v->getFlow());
             second.push_back(p);
         }
 
@@ -342,13 +342,13 @@ void WaterSupplyManager::evaluateEdgeImpact(const string &source, const string &
         cout << "No cities were affected" << endl;
     }
 
-    for (auto v: second) {
-        for (auto vv: first) {
-            if (v.first == vv.first) {
-                double difference = vv.second - v.second;
+    for (const auto& a: second) {
+        for (const auto& b: first) {
+            if (a.first == b.first) {
+                double difference = b.second - a.second;
                 if (difference > 0) {
-                    cout << "City: " << vv.first << " before had " << vv.second << endl;
-                    cout << "Now has " << v.second << "\n" << endl;
+                    cout << "City: " << b.first << " before had " << b.second << endl;
+                    cout << "Now has " << a.second << "\n" << endl;
                 }
             }
         }

@@ -23,24 +23,24 @@ const unordered_map<string, WaterReservoir> &Data::getReservoirs() const {
     return reservoirs;
 }
 
-const std::unordered_map<string, PumpingStation> &Data::getStations() const {
+const unordered_map<string, PumpingStation> &Data::getStations() const {
     return stations;
 }
 
-const std::unordered_map<std::string, DeliverySite> &Data::getSites() const {
+const unordered_map<string, DeliverySite> &Data::getSites() const {
     return sites;
 }
 
-const Graph<std::string> &Data::getGraph() const {
+const Graph<string> &Data::getGraph() const {
     return graph;
 }
 
 
-void Data::readReservoirs(const std::string &filename) {
+void Data::readReservoirs(const string &filename) {
     ifstream file(filename);
 
     if (!file.is_open()) {
-        std::cerr << "There was an error opening file " << filename << endl;
+        cerr << "There was an error opening file " << filename << endl;
         return;
     }
 
@@ -66,11 +66,11 @@ void Data::readReservoirs(const std::string &filename) {
     }
 }
 
-void Data::readStations(const std::string &filename) {
+void Data::readStations(const string &filename) {
     ifstream file(filename);
 
     if (!file.is_open()) {
-        std::cerr << "There was an error opening file " << filename << endl;
+        cerr << "There was an error opening file " << filename << endl;
         return;
     }
 
@@ -92,11 +92,11 @@ void Data::readStations(const std::string &filename) {
     }
 }
 
-void Data::readSites(const std::string &filename) {
+void Data::readSites(const string &filename) {
     ifstream file(filename);
 
     if (!file.is_open()) {
-        std::cerr << "There was an error opening file " << filename << endl;
+        cerr << "There was an error opening file " << filename << endl;
         return;
     }
 
@@ -126,11 +126,11 @@ void Data::readSites(const std::string &filename) {
     }
 }
 
-void Data::readPipes(const std::string &filename) {
+void Data::readPipes(const string &filename) {
     ifstream file(filename);
 
     if (!file.is_open()) {
-        std::cerr << "There was an error opening file " << filename << endl;
+        cerr << "There was an error opening file " << filename << endl;
         return;
     }
 

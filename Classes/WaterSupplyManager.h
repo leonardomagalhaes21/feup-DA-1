@@ -26,7 +26,7 @@ public:
 
     void evaluateVertexRemoval(std::string vertex);
 
-    void evaluateEdgeImpact(const std::string &source, const std::string &destination);
+    void evaluateEdgeRemoval(const std::string &source, const std::string &destination);
 
 private:
     std::unordered_map<std::string, WaterReservoir> reservoirs;
