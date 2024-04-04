@@ -194,7 +194,9 @@ void deleteMatrix(double **m, int n);
 /************************* Vertex  **************************/
 
 template<class T>
-Vertex<T>::Vertex(T in): code(in) {}
+Vertex<T>::Vertex(T in): code(in) {
+    sel = 0;
+}
 
 /*
  * Auxiliary function to add an outgoing edge to a vertex (this),
