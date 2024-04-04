@@ -219,7 +219,6 @@ void WaterSupplyManager::evaluateVertexRemoval(string vertex) {
 
     // Find the ver vertex to remove
     Vertex<string> *ver = graph.findVertex(vertex);
-    cout << ver->getSel() << ver->getCode();
     if (ver == nullptr || (ver->getSel() != 1 && ver->getSel() != 2)) {
 
         cout << "Vertex not found" << endl;
