@@ -39,7 +39,7 @@ public:
     /**
      * @brief Calculates the maximum flow from the pumping station
      * @details Time complexity: O(VE^2), where V is the number of vertices and E is the number of edges in the graph
-     * @return Maximum flow from the pumping station
+     * @return Maximum flow from the network
      */
     int pumpMaxFlow();
 

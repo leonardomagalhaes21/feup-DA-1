@@ -1,0 +1,166 @@
+\doxysection{Data Class Reference}
+\hypertarget{class_data}{}\label{class_data}\index{Data@{Data}}
+
+
+{\ttfamily \#include $<$Data.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_data_ade89eb67b97e8deda1fe9384f405678a}{Data}} (std\+::string \mbox{\hyperlink{class_edge}{s}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_data}{Data} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{const}} std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{class_water_reservoir}{Water\+Reservoir}} $>$ \& \mbox{\hyperlink{class_data_a04b68303b8759bf7d7590d575aec8cc6}{get\+Reservoirs}} () \mbox{\hyperlink{class_edge}{const}}
+\begin{DoxyCompactList}\small\item\em Fetches the reservoirs data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{const}} std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{class_pumping_station}{Pumping\+Station}} $>$ \& \mbox{\hyperlink{class_data_a9f9c9412887660209585fd50786e42bb}{get\+Stations}} () \mbox{\hyperlink{class_edge}{const}}
+\begin{DoxyCompactList}\small\item\em Fetches the pumping stations data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{const}} std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{class_delivery_site}{Delivery\+Site}} $>$ \& \mbox{\hyperlink{class_data_a8ea065dc01c32a3d7339db3310237a0d}{get\+Sites}} () \mbox{\hyperlink{class_edge}{const}}
+\begin{DoxyCompactList}\small\item\em Fetches the delivery sites data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_graph}{Graph}}$<$ std\+::string $>$ \& \mbox{\hyperlink{class_data_ab00720ac72dee5e1a80ddda04d343bb5}{get\+Graph}} () \mbox{\hyperlink{class_edge}{const}}
+\begin{DoxyCompactList}\small\item\em Fetches the graph data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_data_a2511db79b4a21646ecb6ef83dcdda0de}{read\+Reservoirs}} (\mbox{\hyperlink{class_edge}{const}} std\+::string \&\mbox{\hyperlink{class_edge}{filename}})
+\begin{DoxyCompactList}\small\item\em Reads reservoirs data from a file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_data_aac11dd89c1e4c642ce61aa3907c0021a}{read\+Stations}} (\mbox{\hyperlink{class_edge}{const}} std\+::string \&\mbox{\hyperlink{class_edge}{filename}})
+\begin{DoxyCompactList}\small\item\em Reads pumping stations data from a file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_data_a0f48405677247bfe8bb9ae1191fbabea}{read\+Sites}} (\mbox{\hyperlink{class_edge}{const}} std\+::string \&\mbox{\hyperlink{class_edge}{filename}})
+\begin{DoxyCompactList}\small\item\em Reads delivery sites data from a file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_data_aab9d00a1f6028b92bb288efa2a14afe2}{read\+Pipes}} (\mbox{\hyperlink{class_edge}{const}} std\+::string \&\mbox{\hyperlink{class_edge}{filename}})
+\begin{DoxyCompactList}\small\item\em Reads pipes data from a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_data_ade89eb67b97e8deda1fe9384f405678a}\label{class_data_ade89eb67b97e8deda1fe9384f405678a} 
+\index{Data@{Data}!Data@{Data}}
+\index{Data@{Data}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{Data()}{Data()}}
+{\footnotesize\ttfamily Data\+::\+Data (\begin{DoxyParamCaption}\item[{std\+::string}]{s }\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_data}{Data} object. 
+
+Time complexity\+: O(1) 
+\begin{DoxyParams}{Parameters}
+{\em Path} & to the data file \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_data_ab00720ac72dee5e1a80ddda04d343bb5}\label{class_data_ab00720ac72dee5e1a80ddda04d343bb5} 
+\index{Data@{Data}!getGraph@{getGraph}}
+\index{getGraph@{getGraph}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{getGraph()}{getGraph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{string}} $>$ \& Data\+::get\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Fetches the graph data. 
+
+Time complexity\+: O(1) \begin{DoxyReturn}{Returns}
+\doxylink{class_graph}{Graph} data 
+\end{DoxyReturn}
+\Hypertarget{class_data_a04b68303b8759bf7d7590d575aec8cc6}\label{class_data_a04b68303b8759bf7d7590d575aec8cc6} 
+\index{Data@{Data}!getReservoirs@{getReservoirs}}
+\index{getReservoirs@{getReservoirs}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{getReservoirs()}{getReservoirs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_edge}{unordered\+\_\+map}}$<$ \mbox{\hyperlink{class_edge}{string}}, \mbox{\hyperlink{class_water_reservoir}{Water\+Reservoir}} $>$ \& Data\+::get\+Reservoirs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Fetches the reservoirs data. 
+
+Time complexity\+: O(1) \begin{DoxyReturn}{Returns}
+Map of reservoirs 
+\end{DoxyReturn}
+\Hypertarget{class_data_a8ea065dc01c32a3d7339db3310237a0d}\label{class_data_a8ea065dc01c32a3d7339db3310237a0d} 
+\index{Data@{Data}!getSites@{getSites}}
+\index{getSites@{getSites}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{getSites()}{getSites()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_edge}{unordered\+\_\+map}}$<$ \mbox{\hyperlink{class_edge}{string}}, \mbox{\hyperlink{class_delivery_site}{Delivery\+Site}} $>$ \& Data\+::get\+Sites (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Fetches the delivery sites data. 
+
+Time complexity\+: O(1) \begin{DoxyReturn}{Returns}
+Map of delivery sites 
+\end{DoxyReturn}
+\Hypertarget{class_data_a9f9c9412887660209585fd50786e42bb}\label{class_data_a9f9c9412887660209585fd50786e42bb} 
+\index{Data@{Data}!getStations@{getStations}}
+\index{getStations@{getStations}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{getStations()}{getStations()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_edge}{unordered\+\_\+map}}$<$ \mbox{\hyperlink{class_edge}{string}}, \mbox{\hyperlink{class_pumping_station}{Pumping\+Station}} $>$ \& Data\+::get\+Stations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Fetches the pumping stations data. 
+
+Time complexity\+: O(1) \begin{DoxyReturn}{Returns}
+Map of pumping stations 
+\end{DoxyReturn}
+\Hypertarget{class_data_aab9d00a1f6028b92bb288efa2a14afe2}\label{class_data_aab9d00a1f6028b92bb288efa2a14afe2} 
+\index{Data@{Data}!readPipes@{readPipes}}
+\index{readPipes@{readPipes}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{readPipes()}{readPipes()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Data\+::read\+Pipes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{const}} std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+
+
+Reads pipes data from a file. 
+
+Time complexity\+: O(n), where n is the number of lines in the file 
+\begin{DoxyParams}{Parameters}
+{\em filename} & Name of the file to read from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_data_a2511db79b4a21646ecb6ef83dcdda0de}\label{class_data_a2511db79b4a21646ecb6ef83dcdda0de} 
+\index{Data@{Data}!readReservoirs@{readReservoirs}}
+\index{readReservoirs@{readReservoirs}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{readReservoirs()}{readReservoirs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Data\+::read\+Reservoirs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{const}} std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+
+
+Reads reservoirs data from a file. 
+
+Time complexity\+: O(n), where n is the number of lines in the file 
+\begin{DoxyParams}{Parameters}
+{\em filename} & Name of the file to read from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_data_a0f48405677247bfe8bb9ae1191fbabea}\label{class_data_a0f48405677247bfe8bb9ae1191fbabea} 
+\index{Data@{Data}!readSites@{readSites}}
+\index{readSites@{readSites}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{readSites()}{readSites()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Data\+::read\+Sites (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{const}} std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+
+
+Reads delivery sites data from a file. 
+
+Time complexity\+: O(n), where n is the number of lines in the file 
+\begin{DoxyParams}{Parameters}
+{\em filename} & Name of the file to read from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_data_aac11dd89c1e4c642ce61aa3907c0021a}\label{class_data_aac11dd89c1e4c642ce61aa3907c0021a} 
+\index{Data@{Data}!readStations@{readStations}}
+\index{readStations@{readStations}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{readStations()}{readStations()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Data\+::read\+Stations (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{const}} std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+
+
+Reads pumping stations data from a file. 
+
+Time complexity\+: O(n), where n is the number of lines in the file 
+\begin{DoxyParams}{Parameters}
+{\em filename} & Name of the file to read from \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_data_8h}{Data.\+h}}\item 
+\mbox{\hyperlink{_data_8cpp}{Data.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,55 @@
+\doxysection{Water\+Supply\+Manager.\+cpp File Reference}
+\hypertarget{_water_supply_manager_8cpp}{}\label{_water_supply_manager_8cpp}\index{WaterSupplyManager.cpp@{WaterSupplyManager.cpp}}
+{\ttfamily \#include "{}Water\+Supply\+Manager.\+h"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{class_edge}{class}} \mbox{\hyperlink{class_edge}{T}} $>$ }\\\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{_water_supply_manager_8cpp_a8b04b2a3232a7e65f98bf13e03976d39}{test\+And\+Visit}} (\mbox{\hyperlink{class_edge}{queue}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&\mbox{\hyperlink{class_edge}{q}}, \mbox{\hyperlink{class_edge}{Edge}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{e}}, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{w}}, \mbox{\hyperlink{class_edge}{int}} \mbox{\hyperlink{class_edge}{residual}})
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{class_edge}{class}} \mbox{\hyperlink{class_edge}{T}} $>$ }\\\mbox{\hyperlink{class_edge}{bool}} \mbox{\hyperlink{_water_supply_manager_8cpp_a7ef59ca73ad539b2405ee93bb9e1b8de}{find\+Augmenting\+Path}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{g}}, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{s}}, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{t}})
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{class_edge}{class}} \mbox{\hyperlink{class_edge}{T}} $>$ }\\\mbox{\hyperlink{class_edge}{double}} \mbox{\hyperlink{_water_supply_manager_8cpp_ab38647bac4738e296aba7b1bc4744835}{find\+Min\+Residual\+Along\+Path}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{s}}, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{t}})
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{class_edge}{class}} \mbox{\hyperlink{class_edge}{T}} $>$ }\\\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{_water_supply_manager_8cpp_a03d7194ed69b3b56cd0985b537b35594}{augment\+Flow\+Along\+Path}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{s}}, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{t}}, \mbox{\hyperlink{class_edge}{int}} \mbox{\hyperlink{class_edge}{f}})
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{class_edge}{class}} \mbox{\hyperlink{class_edge}{T}} $>$ }\\\mbox{\hyperlink{class_edge}{int}} \mbox{\hyperlink{_water_supply_manager_8cpp_ad7cf6ac2233e38138fa0f93fefd5d09c}{edmonds\+Karp}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{g}}, \mbox{\hyperlink{class_edge}{T}} \mbox{\hyperlink{class_edge}{source}}, \mbox{\hyperlink{class_edge}{T}} \mbox{\hyperlink{class_edge}{target}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_water_supply_manager_8cpp_a03d7194ed69b3b56cd0985b537b35594}\label{_water_supply_manager_8cpp_a03d7194ed69b3b56cd0985b537b35594} 
+\index{WaterSupplyManager.cpp@{WaterSupplyManager.cpp}!augmentFlowAlongPath@{augmentFlowAlongPath}}
+\index{augmentFlowAlongPath@{augmentFlowAlongPath}!WaterSupplyManager.cpp@{WaterSupplyManager.cpp}}
+\doxysubsubsection{\texorpdfstring{augmentFlowAlongPath()}{augmentFlowAlongPath()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_edge}{class}} \mbox{\hyperlink{class_edge}{T}} $>$ \\
+\mbox{\hyperlink{class_edge}{void}} augment\+Flow\+Along\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{s,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{t,  }\item[{\mbox{\hyperlink{class_edge}{int}}}]{f }\end{DoxyParamCaption})}
+
+\Hypertarget{_water_supply_manager_8cpp_ad7cf6ac2233e38138fa0f93fefd5d09c}\label{_water_supply_manager_8cpp_ad7cf6ac2233e38138fa0f93fefd5d09c} 
+\index{WaterSupplyManager.cpp@{WaterSupplyManager.cpp}!edmondsKarp@{edmondsKarp}}
+\index{edmondsKarp@{edmondsKarp}!WaterSupplyManager.cpp@{WaterSupplyManager.cpp}}
+\doxysubsubsection{\texorpdfstring{edmondsKarp()}{edmondsKarp()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_edge}{class}} \mbox{\hyperlink{class_edge}{T}} $>$ \\
+\mbox{\hyperlink{class_edge}{int}} edmonds\+Karp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{g,  }\item[{\mbox{\hyperlink{class_edge}{T}}}]{source,  }\item[{\mbox{\hyperlink{class_edge}{T}}}]{target }\end{DoxyParamCaption})}
+
+\Hypertarget{_water_supply_manager_8cpp_a7ef59ca73ad539b2405ee93bb9e1b8de}\label{_water_supply_manager_8cpp_a7ef59ca73ad539b2405ee93bb9e1b8de} 
+\index{WaterSupplyManager.cpp@{WaterSupplyManager.cpp}!findAugmentingPath@{findAugmentingPath}}
+\index{findAugmentingPath@{findAugmentingPath}!WaterSupplyManager.cpp@{WaterSupplyManager.cpp}}
+\doxysubsubsection{\texorpdfstring{findAugmentingPath()}{findAugmentingPath()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_edge}{class}} \mbox{\hyperlink{class_edge}{T}} $>$ \\
+\mbox{\hyperlink{class_edge}{bool}} find\+Augmenting\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{g,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{s,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{t }\end{DoxyParamCaption})}
+
+\Hypertarget{_water_supply_manager_8cpp_ab38647bac4738e296aba7b1bc4744835}\label{_water_supply_manager_8cpp_ab38647bac4738e296aba7b1bc4744835} 
+\index{WaterSupplyManager.cpp@{WaterSupplyManager.cpp}!findMinResidualAlongPath@{findMinResidualAlongPath}}
+\index{findMinResidualAlongPath@{findMinResidualAlongPath}!WaterSupplyManager.cpp@{WaterSupplyManager.cpp}}
+\doxysubsubsection{\texorpdfstring{findMinResidualAlongPath()}{findMinResidualAlongPath()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_edge}{class}} \mbox{\hyperlink{class_edge}{T}} $>$ \\
+\mbox{\hyperlink{class_edge}{double}} find\+Min\+Residual\+Along\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{s,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{t }\end{DoxyParamCaption})}
+
+\Hypertarget{_water_supply_manager_8cpp_a8b04b2a3232a7e65f98bf13e03976d39}\label{_water_supply_manager_8cpp_a8b04b2a3232a7e65f98bf13e03976d39} 
+\index{WaterSupplyManager.cpp@{WaterSupplyManager.cpp}!testAndVisit@{testAndVisit}}
+\index{testAndVisit@{testAndVisit}!WaterSupplyManager.cpp@{WaterSupplyManager.cpp}}
+\doxysubsubsection{\texorpdfstring{testAndVisit()}{testAndVisit()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_edge}{class}} \mbox{\hyperlink{class_edge}{T}} $>$ \\
+\mbox{\hyperlink{class_edge}{void}} test\+And\+Visit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{queue}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&}]{q,  }\item[{\mbox{\hyperlink{class_edge}{Edge}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{e,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{w,  }\item[{\mbox{\hyperlink{class_edge}{int}}}]{residual }\end{DoxyParamCaption})}
+
