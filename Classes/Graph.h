@@ -196,6 +196,9 @@ void deleteMatrix(double **m, int n);
 template<class T>
 Vertex<T>::Vertex(T in): code(in) {
     sel = 0;
+    flow = 0;
+    indegree = 0;
+    dist = 0;
 }
 
 /*
