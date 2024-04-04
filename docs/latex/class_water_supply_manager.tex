@@ -1,0 +1,137 @@
+\doxysection{Water\+Supply\+Manager Class Reference}
+\hypertarget{class_water_supply_manager}{}\label{class_water_supply_manager}\index{WaterSupplyManager@{WaterSupplyManager}}
+
+
+{\ttfamily \#include $<$Water\+Supply\+Manager.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_water_supply_manager_afd627fc1b107a4e33df07e16a1e2ba97}{Water\+Supply\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_water_supply_manager}{Water\+Supply\+Manager} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_water_supply_manager_ab6ce93db0a5178cc5ff29f4ba9980c0a}{Water\+Supply\+Manager}} (\mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_data}{Data}} \&\mbox{\hyperlink{class_edge}{d}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_water_supply_manager}{Water\+Supply\+Manager} object with data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_water_supply_manager_ab81820117a08b002a73aee70d0db7d6c}{max\+Flow\+To\+Cities}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the maximum flow to all cities. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_water_supply_manager_a78ea777b9a4a2f855128c7a68929691f}{demand\+Coverage}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the coverage of water demand. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{int}} \mbox{\hyperlink{class_water_supply_manager_a9ebe2279c417c71c121d12dd959edda2}{pump\+Max\+Flow}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the maximum flow from the pumping station. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_water_supply_manager_a7ea7fc0b91b68b21cefa6e9cae3368e9}{reset\+Flow}} ()
+\begin{DoxyCompactList}\small\item\em Resets the flow in the water supply network. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_water_supply_manager_a2fed2f081f37dfa57ef4903ba3b29e98}{evaluate\+Vertex\+Removal}} (\mbox{\hyperlink{class_edge}{const}} std\+::string \&\mbox{\hyperlink{class_edge}{vertex}})
+\begin{DoxyCompactList}\small\item\em Evaluates the impact of removing a vertex from the water supply network. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_water_supply_manager_aa65a46112795052370cd5cd9f0da0d72}{evaluate\+Edge\+Removal}} (\mbox{\hyperlink{class_edge}{const}} std\+::string \&\mbox{\hyperlink{class_edge}{source}}, \mbox{\hyperlink{class_edge}{const}} std\+::string \&\mbox{\hyperlink{class_edge}{destination}})
+\begin{DoxyCompactList}\small\item\em Evaluates the impact of removing an edge from the water supply network. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_water_supply_manager_afd627fc1b107a4e33df07e16a1e2ba97}\label{class_water_supply_manager_afd627fc1b107a4e33df07e16a1e2ba97} 
+\index{WaterSupplyManager@{WaterSupplyManager}!WaterSupplyManager@{WaterSupplyManager}}
+\index{WaterSupplyManager@{WaterSupplyManager}!WaterSupplyManager@{WaterSupplyManager}}
+\doxysubsubsection{\texorpdfstring{WaterSupplyManager()}{WaterSupplyManager()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Water\+Supply\+Manager\+::\+Water\+Supply\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_water_supply_manager}{Water\+Supply\+Manager} object. 
+
+Time complexity\+: O(1) \Hypertarget{class_water_supply_manager_ab6ce93db0a5178cc5ff29f4ba9980c0a}\label{class_water_supply_manager_ab6ce93db0a5178cc5ff29f4ba9980c0a} 
+\index{WaterSupplyManager@{WaterSupplyManager}!WaterSupplyManager@{WaterSupplyManager}}
+\index{WaterSupplyManager@{WaterSupplyManager}!WaterSupplyManager@{WaterSupplyManager}}
+\doxysubsubsection{\texorpdfstring{WaterSupplyManager()}{WaterSupplyManager()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Water\+Supply\+Manager\+::\+Water\+Supply\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_data}{Data}} \&}]{d }\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_water_supply_manager}{Water\+Supply\+Manager} object with data. 
+
+Time complexity\+: O(1) 
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{class_data}{Data}} & to initialize the water supply manager \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_water_supply_manager_a78ea777b9a4a2f855128c7a68929691f}\label{class_water_supply_manager_a78ea777b9a4a2f855128c7a68929691f} 
+\index{WaterSupplyManager@{WaterSupplyManager}!demandCoverage@{demandCoverage}}
+\index{demandCoverage@{demandCoverage}!WaterSupplyManager@{WaterSupplyManager}}
+\doxysubsubsection{\texorpdfstring{demandCoverage()}{demandCoverage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Water\+Supply\+Manager\+::demand\+Coverage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates the coverage of water demand. 
+
+Time complexity\+: O(\+V), where V is the number of delivery sites \Hypertarget{class_water_supply_manager_aa65a46112795052370cd5cd9f0da0d72}\label{class_water_supply_manager_aa65a46112795052370cd5cd9f0da0d72} 
+\index{WaterSupplyManager@{WaterSupplyManager}!evaluateEdgeRemoval@{evaluateEdgeRemoval}}
+\index{evaluateEdgeRemoval@{evaluateEdgeRemoval}!WaterSupplyManager@{WaterSupplyManager}}
+\doxysubsubsection{\texorpdfstring{evaluateEdgeRemoval()}{evaluateEdgeRemoval()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Water\+Supply\+Manager\+::evaluate\+Edge\+Removal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{const}} std\+::string \&}]{source,  }\item[{\mbox{\hyperlink{class_edge}{const}} std\+::string \&}]{destination }\end{DoxyParamCaption})}
+
+
+
+Evaluates the impact of removing an edge from the water supply network. 
+
+Time complexity\+: O(\+VE\texorpdfstring{$^\wedge$}{\string^}2), where V is the number of vertices and E is the number of edges in the graph 
+\begin{DoxyParams}{Parameters}
+{\em Source} & vertex of the edge \\
+\hline
+{\em Destination} & vertex of the edge \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_water_supply_manager_a2fed2f081f37dfa57ef4903ba3b29e98}\label{class_water_supply_manager_a2fed2f081f37dfa57ef4903ba3b29e98} 
+\index{WaterSupplyManager@{WaterSupplyManager}!evaluateVertexRemoval@{evaluateVertexRemoval}}
+\index{evaluateVertexRemoval@{evaluateVertexRemoval}!WaterSupplyManager@{WaterSupplyManager}}
+\doxysubsubsection{\texorpdfstring{evaluateVertexRemoval()}{evaluateVertexRemoval()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Water\+Supply\+Manager\+::evaluate\+Vertex\+Removal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{const}} std\+::string \&}]{vertex }\end{DoxyParamCaption})}
+
+
+
+Evaluates the impact of removing a vertex from the water supply network. 
+
+Time complexity\+: O(\+VE\texorpdfstring{$^\wedge$}{\string^}2), where V is the number of vertices in the graph 
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{class_vertex}{Vertex}} & to be removed \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_water_supply_manager_ab81820117a08b002a73aee70d0db7d6c}\label{class_water_supply_manager_ab81820117a08b002a73aee70d0db7d6c} 
+\index{WaterSupplyManager@{WaterSupplyManager}!maxFlowToCities@{maxFlowToCities}}
+\index{maxFlowToCities@{maxFlowToCities}!WaterSupplyManager@{WaterSupplyManager}}
+\doxysubsubsection{\texorpdfstring{maxFlowToCities()}{maxFlowToCities()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Water\+Supply\+Manager\+::max\+Flow\+To\+Cities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates the maximum flow to all cities. 
+
+Time complexity\+: O(\+VE\texorpdfstring{$^\wedge$}{\string^}2), where V is the number of vertices and E is the number of edges in the graph \Hypertarget{class_water_supply_manager_a9ebe2279c417c71c121d12dd959edda2}\label{class_water_supply_manager_a9ebe2279c417c71c121d12dd959edda2} 
+\index{WaterSupplyManager@{WaterSupplyManager}!pumpMaxFlow@{pumpMaxFlow}}
+\index{pumpMaxFlow@{pumpMaxFlow}!WaterSupplyManager@{WaterSupplyManager}}
+\doxysubsubsection{\texorpdfstring{pumpMaxFlow()}{pumpMaxFlow()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{int}} Water\+Supply\+Manager\+::pump\+Max\+Flow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates the maximum flow from the pumping station. 
+
+Time complexity\+: O(\+VE\texorpdfstring{$^\wedge$}{\string^}2), where V is the number of vertices and E is the number of edges in the graph \begin{DoxyReturn}{Returns}
+Maximum flow from the network 
+\end{DoxyReturn}
+\Hypertarget{class_water_supply_manager_a7ea7fc0b91b68b21cefa6e9cae3368e9}\label{class_water_supply_manager_a7ea7fc0b91b68b21cefa6e9cae3368e9} 
+\index{WaterSupplyManager@{WaterSupplyManager}!resetFlow@{resetFlow}}
+\index{resetFlow@{resetFlow}!WaterSupplyManager@{WaterSupplyManager}}
+\doxysubsubsection{\texorpdfstring{resetFlow()}{resetFlow()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Water\+Supply\+Manager\+::reset\+Flow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Resets the flow in the water supply network. 
+
+Time complexity\+: O(V + E), where V is the number of vertices and E is the number of edges in the graph 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_water_supply_manager_8h}{Water\+Supply\+Manager.\+h}}\item 
+\mbox{\hyperlink{_water_supply_manager_8cpp}{Water\+Supply\+Manager.\+cpp}}\end{DoxyCompactItemize}

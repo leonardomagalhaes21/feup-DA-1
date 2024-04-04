@@ -1,0 +1,49 @@
+\doxysection{Data.\+h}
+\hypertarget{_data_8h_source}{}\label{_data_8h_source}\index{Data.h@{Data.h}}
+\mbox{\hyperlink{_data_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ FEUP\_DA\_1\_DATA\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ FEUP\_DA\_1\_DATA\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_water_reservoir_8h}{WaterReservoir.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_pumping_station_8h}{PumpingStation.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_delivery_site_8h}{DeliverySite.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_graph_8h}{Graph.h}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_data}{Data}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_data}{Data}}(std::string\ s);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{const}\ std::unordered\_map<std::string,\ WaterReservoir>\ \&\mbox{\hyperlink{class_data_a04b68303b8759bf7d7590d575aec8cc6}{getReservoirs}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{const}\ std::unordered\_map<std::string,\ PumpingStation>\ \&\mbox{\hyperlink{class_data_a9f9c9412887660209585fd50786e42bb}{getStations}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{const}\ std::unordered\_map<std::string,\ DeliverySite>\ \&\mbox{\hyperlink{class_data_a8ea065dc01c32a3d7339db3310237a0d}{getSites}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_graph}{Graph<std::string>}}\ \&\mbox{\hyperlink{class_data_ab00720ac72dee5e1a80ddda04d343bb5}{getGraph}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_a2511db79b4a21646ecb6ef83dcdda0de}{readReservoirs}}(\textcolor{keyword}{const}\ std::string\ \&filename);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_aac11dd89c1e4c642ce61aa3907c0021a}{readStations}}(\textcolor{keyword}{const}\ std::string\ \&filename);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_a0f48405677247bfe8bb9ae1191fbabea}{readSites}}(\textcolor{keyword}{const}\ std::string\ \&filename);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_aab9d00a1f6028b92bb288efa2a14afe2}{readPipes}}(\textcolor{keyword}{const}\ std::string\ \&filename);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00081\ \ \ \ \ std::unordered\_map<std::string,\ WaterReservoir>\ reservoirs;}
+\DoxyCodeLine{00082\ \ \ \ \ std::unordered\_map<std::string,\ PumpingStation>\ stations;}
+\DoxyCodeLine{00083\ \ \ \ \ std::unordered\_map<std::string,\ DeliverySite>\ sites;}
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<std::string>}}\ graph;}
+\DoxyCodeLine{00085\ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//FEUP\_DA\_1\_DATA\_H}}
+
+\end{DoxyCode}
