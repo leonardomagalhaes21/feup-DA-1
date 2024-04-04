@@ -205,7 +205,7 @@ void WaterSupplyManager::demandCoverage() {
     out.close();
 }
 
-void WaterSupplyManager::evaluateVertexRemoval(string vertex) {
+void WaterSupplyManager::evaluateVertexRemoval(const string& vertex) {
     int completeMaxFlowFirst = pumpMaxFlow();
     vector<pair<string, int>> first;
 
