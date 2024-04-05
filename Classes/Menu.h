@@ -17,7 +17,7 @@ public:
      * @brief Displays the menu
      * @details Time complexity: O(1)
      */
-    void showMenu();
+    static void showMenu();
 
     /**
      * @brief Draws the top part of the menu

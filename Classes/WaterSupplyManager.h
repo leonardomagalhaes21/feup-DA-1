@@ -7,6 +7,7 @@
 #include <fstream>
 #include <unordered_map>
 #include <climits>
+#include <iomanip>
 
 class WaterSupplyManager {
 public:
@@ -63,6 +64,24 @@ public:
      * @param Destination vertex of the edge
      */
     void evaluateEdgeRemoval(const std::string &source, const std::string &destination);
+
+    /**
+     * @brief Prints the details of all cities in a table-like format
+     * @details Time complexity: O(V), where V is the number of vertices in the graph.
+     */
+    void printCitiesDetails();
+
+    /**
+     * @brief Prints the details of all reservoirs in a table-like format
+     * @details Time complexity: O(V), where V is the number of vertices in the graph.
+     */
+    void printReservoirsDetails();
+
+    /**
+     * @brief Prints the details of all pumping stations.
+     * @details Time complexity: O(V), where V is the number of vertices in the graph.
+     */
+    void printStationsDetails();
 
 private:
     std::unordered_map<std::string, WaterReservoir> reservoirs;

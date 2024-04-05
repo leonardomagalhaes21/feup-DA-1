@@ -22,7 +22,13 @@
 \mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_water_supply_manager_a2fed2f081f37dfa57ef4903ba3b29e98}{evaluate\+Vertex\+Removal}} (\mbox{\hyperlink{class_edge}{const}} std\+::string \&\mbox{\hyperlink{class_edge}{vertex}})
 \begin{DoxyCompactList}\small\item\em Evaluates the impact of removing a vertex from the water supply network. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_water_supply_manager_aa65a46112795052370cd5cd9f0da0d72}{evaluate\+Edge\+Removal}} (\mbox{\hyperlink{class_edge}{const}} std\+::string \&\mbox{\hyperlink{class_edge}{source}}, \mbox{\hyperlink{class_edge}{const}} std\+::string \&\mbox{\hyperlink{class_edge}{destination}})
-\begin{DoxyCompactList}\small\item\em Evaluates the impact of removing an edge from the water supply network. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Evaluates the impact of removing an edge from the water supply network. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_water_supply_manager_af5d370565846a83ecbf070c96e853dac}{print\+Cities\+Details}} ()
+\begin{DoxyCompactList}\small\item\em Prints the details of all cities in a table-\/like format. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_water_supply_manager_a448c4efbe59d1f7b7376aae5a6eef60e}{print\+Reservoirs\+Details}} ()
+\begin{DoxyCompactList}\small\item\em Prints the details of all reservoirs in a table-\/like format. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_water_supply_manager_a54395ae2682a4249e4183013c07f6142}{print\+Stations\+Details}} ()
+\begin{DoxyCompactList}\small\item\em Prints the details of all pumping stations. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -106,7 +112,37 @@ Time complexity\+: O(\+VE\texorpdfstring{$^\wedge$}{\string^}2), where V is the 
 
 Calculates the maximum flow to all cities. 
 
-Time complexity\+: O(\+VE\texorpdfstring{$^\wedge$}{\string^}2), where V is the number of vertices and E is the number of edges in the graph \Hypertarget{class_water_supply_manager_a9ebe2279c417c71c121d12dd959edda2}\label{class_water_supply_manager_a9ebe2279c417c71c121d12dd959edda2} 
+Time complexity\+: O(\+VE\texorpdfstring{$^\wedge$}{\string^}2), where V is the number of vertices and E is the number of edges in the graph \Hypertarget{class_water_supply_manager_af5d370565846a83ecbf070c96e853dac}\label{class_water_supply_manager_af5d370565846a83ecbf070c96e853dac} 
+\index{WaterSupplyManager@{WaterSupplyManager}!printCitiesDetails@{printCitiesDetails}}
+\index{printCitiesDetails@{printCitiesDetails}!WaterSupplyManager@{WaterSupplyManager}}
+\doxysubsubsection{\texorpdfstring{printCitiesDetails()}{printCitiesDetails()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Water\+Supply\+Manager\+::print\+Cities\+Details (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prints the details of all cities in a table-\/like format. 
+
+Time complexity\+: O(\+V), where V is the number of vertices in the graph. \Hypertarget{class_water_supply_manager_a448c4efbe59d1f7b7376aae5a6eef60e}\label{class_water_supply_manager_a448c4efbe59d1f7b7376aae5a6eef60e} 
+\index{WaterSupplyManager@{WaterSupplyManager}!printReservoirsDetails@{printReservoirsDetails}}
+\index{printReservoirsDetails@{printReservoirsDetails}!WaterSupplyManager@{WaterSupplyManager}}
+\doxysubsubsection{\texorpdfstring{printReservoirsDetails()}{printReservoirsDetails()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Water\+Supply\+Manager\+::print\+Reservoirs\+Details (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prints the details of all reservoirs in a table-\/like format. 
+
+Time complexity\+: O(\+V), where V is the number of vertices in the graph. \Hypertarget{class_water_supply_manager_a54395ae2682a4249e4183013c07f6142}\label{class_water_supply_manager_a54395ae2682a4249e4183013c07f6142} 
+\index{WaterSupplyManager@{WaterSupplyManager}!printStationsDetails@{printStationsDetails}}
+\index{printStationsDetails@{printStationsDetails}!WaterSupplyManager@{WaterSupplyManager}}
+\doxysubsubsection{\texorpdfstring{printStationsDetails()}{printStationsDetails()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Water\+Supply\+Manager\+::print\+Stations\+Details (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prints the details of all pumping stations. 
+
+Time complexity\+: O(\+V), where V is the number of vertices in the graph. \Hypertarget{class_water_supply_manager_a9ebe2279c417c71c121d12dd959edda2}\label{class_water_supply_manager_a9ebe2279c417c71c121d12dd959edda2} 
 \index{WaterSupplyManager@{WaterSupplyManager}!pumpMaxFlow@{pumpMaxFlow}}
 \index{pumpMaxFlow@{pumpMaxFlow}!WaterSupplyManager@{WaterSupplyManager}}
 \doxysubsubsection{\texorpdfstring{pumpMaxFlow()}{pumpMaxFlow()}}

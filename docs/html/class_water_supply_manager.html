@@ -104,6 +104,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa65a46112795052370cd5cd9f0da0d72" id="r_aa65a46112795052370cd5cd9f0da0d72"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_water_supply_manager.html#aa65a46112795052370cd5cd9f0da0d72">evaluateEdgeRemoval</a> (<a class="el" href="class_edge.html">const</a> std::string &amp;<a class="el" href="class_edge.html">source</a>, <a class="el" href="class_edge.html">const</a> std::string &amp;<a class="el" href="class_edge.html">destination</a>)</td></tr>
 <tr class="memdesc:aa65a46112795052370cd5cd9f0da0d72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the impact of removing an edge from the water supply network.  <br /></td></tr>
 <tr class="separator:aa65a46112795052370cd5cd9f0da0d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5d370565846a83ecbf070c96e853dac" id="r_af5d370565846a83ecbf070c96e853dac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_water_supply_manager.html#af5d370565846a83ecbf070c96e853dac">printCitiesDetails</a> ()</td></tr>
+<tr class="memdesc:af5d370565846a83ecbf070c96e853dac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the details of all cities in a table-like format.  <br /></td></tr>
+<tr class="separator:af5d370565846a83ecbf070c96e853dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a448c4efbe59d1f7b7376aae5a6eef60e" id="r_a448c4efbe59d1f7b7376aae5a6eef60e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_water_supply_manager.html#a448c4efbe59d1f7b7376aae5a6eef60e">printReservoirsDetails</a> ()</td></tr>
+<tr class="memdesc:a448c4efbe59d1f7b7376aae5a6eef60e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the details of all reservoirs in a table-like format.  <br /></td></tr>
+<tr class="separator:a448c4efbe59d1f7b7376aae5a6eef60e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54395ae2682a4249e4183013c07f6142" id="r_a54395ae2682a4249e4183013c07f6142"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_water_supply_manager.html#a54395ae2682a4249e4183013c07f6142">printStationsDetails</a> ()</td></tr>
+<tr class="memdesc:a54395ae2682a4249e4183013c07f6142"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the details of all pumping stations.  <br /></td></tr>
+<tr class="separator:a54395ae2682a4249e4183013c07f6142"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afd627fc1b107a4e33df07e16a1e2ba97" name="afd627fc1b107a4e33df07e16a1e2ba97"></a>
@@ -253,6 +262,66 @@ Public Member Functions</h2></td></tr>
 
 <p>Calculates the maximum flow to all cities. </p>
 <p>Time complexity: O(VE^2), where V is the number of vertices and E is the number of edges in the graph </p>
+
+</div>
+</div>
+<a id="af5d370565846a83ecbf070c96e853dac" name="af5d370565846a83ecbf070c96e853dac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5d370565846a83ecbf070c96e853dac">&#9670;&#160;</a></span>printCitiesDetails()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_edge.html">void</a> WaterSupplyManager::printCitiesDetails </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints the details of all cities in a table-like format. </p>
+<p>Time complexity: O(V), where V is the number of vertices in the graph. </p>
+
+</div>
+</div>
+<a id="a448c4efbe59d1f7b7376aae5a6eef60e" name="a448c4efbe59d1f7b7376aae5a6eef60e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a448c4efbe59d1f7b7376aae5a6eef60e">&#9670;&#160;</a></span>printReservoirsDetails()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_edge.html">void</a> WaterSupplyManager::printReservoirsDetails </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints the details of all reservoirs in a table-like format. </p>
+<p>Time complexity: O(V), where V is the number of vertices in the graph. </p>
+
+</div>
+</div>
+<a id="a54395ae2682a4249e4183013c07f6142" name="a54395ae2682a4249e4183013c07f6142"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54395ae2682a4249e4183013c07f6142">&#9670;&#160;</a></span>printStationsDetails()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_edge.html">void</a> WaterSupplyManager::printStationsDetails </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints the details of all pumping stations. </p>
+<p>Time complexity: O(V), where V is the number of vertices in the graph. </p>
 
 </div>
 </div>

@@ -60,6 +60,7 @@ void Menu::showMenu() {
         cout << "| 1. Basic Service Metrics                         |" << endl;
         cout << "| 2. Reliability and Sensitivity to Failures       |" << endl;
         cout << "| 3. Reset Water Supply System                     |" << endl;
+        cout << "| 4. Print Network Details                         |" << endl;
         cout << "| Q. Exit                                          |" << endl;
         drawBottom();
         cout << "Choose an option: ";
@@ -76,12 +77,10 @@ void Menu::showMenu() {
                 cin >> key1;
                 switch (key1) {
                     case '1': {
-//                        cout << "CITIES LIST:" << endl;
                         wsm.maxFlowToCities();
                         break;
                     }
                     case '2': {
-//                        cout << "CITIES LIST:" << endl;
                         wsm.demandCoverage();
                         break;
                     }
@@ -155,8 +154,39 @@ void Menu::showMenu() {
                 wsm = WaterSupplyManager(data);
                 break;
             }
+            case '4' : {
+                char key1;
+                drawTop();
+                cout << "| 1. Print Cities Details                          |" << endl;
+                cout << "| 2. Print Reservoirs Details                      |" << endl;
+                cout << "| 3. Print Pumping Stations Details                |" << endl;
+                cout << "| Q. Exit                                          |" << endl;
+                drawBottom();
+                cout << "Choose an option: ";
+                cin >> key1;
+                switch (key1) {
+                    case '1': {
+                        wsm.printCitiesDetails();
+                        break;
+                    }
+                    case '2': {
+                        wsm.printReservoirsDetails();
+                        break;
+                    }
+                    case '3': {
+                        wsm.printStationsDetails();
+                        break;
+                    }
+                    case 'Q' : {
+                        break;
+                    }
+                    default: {
+                        cout << endl << "Invalid option!" << endl;
+                    }
+                };
+                break;
+            }
             case 'Q' : {
-                //flag = false;
                 break;
             }
             default: {

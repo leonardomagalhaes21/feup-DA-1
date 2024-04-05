@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['data_0',['Data',['../class_data.html#ade89eb67b97e8deda1fe9384f405678a',1,'Data']]],
+  ['data_0',['Data',['../class_data.html#a45c0c23ca3b46981ca42eca88d094417',1,'Data']]],
   ['deleteedge_1',['deleteEdge',['../class_vertex.html#a622503fe44ef12d5c39bd1043d47865c',1,'Vertex']]],
   ['deletematrix_2',['deletematrix',['../_graph_8h.html#ad56527992afe31a371065e795da57d25',1,'deleteMatrix(int **m, int n):&#160;Graph.h'],['../_graph_8h.html#af077bc8682a1a1d97e30b08eb1131b19',1,'deleteMatrix(double **m, int n):&#160;Graph.h']]],
   ['deliverysite_3',['DeliverySite',['../class_delivery_site.html#acda258e4e0e43020fa7d5fadd5a39cc1',1,'DeliverySite']]],
