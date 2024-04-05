@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Data::Data(string s) {
+Data::Data(const string& s) {
     if(s=="madeira"){
         readReservoirs("../dataset/Madeira/Reservoirs_Madeira.csv");
         readStations("../dataset/Madeira/Stations_Madeira.csv");
@@ -159,7 +159,7 @@ void Data::readPipes(const string &filename) {
     for (auto vertex: graph.getVertexSet()) {
         string s = vertex->getCode();
         string prefix = s.substr(0, s.find('_'));
-        if (prefix == "R") { //watter reservoir
+        if (prefix == "R") { //water reservoir
             vertex->setSel(1);
         } else if (prefix == "PS") { //Pumping station
             vertex->setSel(2);

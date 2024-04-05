@@ -1,7 +1,7 @@
 var searchData=
 [
   ['da_201_0',['feup-DA-1',['../md_feup-_d_a-1_2_r_e_a_d_m_e.html',1,'']]],
-  ['data_1',['data',['../class_data.html',1,'Data'],['../class_data.html#ade89eb67b97e8deda1fe9384f405678a',1,'Data::Data()']]],
+  ['data_1',['data',['../class_data.html',1,'Data'],['../class_data.html#a45c0c23ca3b46981ca42eca88d094417',1,'Data::Data()']]],
   ['data_2ecpp_2',['Data.cpp',['../_data_8cpp.html',1,'']]],
   ['data_2eh_3',['Data.h',['../_data_8h.html',1,'']]],
   ['deleteedge_4',['deleteEdge',['../class_vertex.html#a622503fe44ef12d5c39bd1043d47865c',1,'Vertex']]],

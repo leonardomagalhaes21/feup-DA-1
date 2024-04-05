@@ -19,7 +19,7 @@ public:
      * @details Time complexity: O(1)
      * @param Path to the data file
      */
-    Data(std::string s);
+    Data(const std::string& s);
 
     /**
      * @brief Fetches the reservoirs data
