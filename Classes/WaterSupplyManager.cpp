@@ -205,7 +205,7 @@ void WaterSupplyManager::demandCoverage() {
     out.close();
 }
 
-void WaterSupplyManager::evaluateVertexRemoval(const string& vertex) {
+void WaterSupplyManager::evaluateVertexRemoval(const string &vertex) {
     int completeMaxFlowFirst = pumpMaxFlow();
     vector<pair<string, int>> first;
 
@@ -265,8 +265,8 @@ void WaterSupplyManager::evaluateVertexRemoval(const string& vertex) {
         cout << "No cities were affected" << endl;
     }
 
-    for (const auto& a: second) {
-        for (const auto& b: first) {
+    for (const auto &a: second) {
+        for (const auto &b: first) {
             if (a.first == b.first) {
                 double difference = b.second - a.second;
                 if (difference > 0) {
@@ -337,8 +337,8 @@ void WaterSupplyManager::evaluateEdgeRemoval(const string &source, const string 
         cout << "No cities were affected" << endl;
     }
 
-    for (const auto& a: second) {
-        for (const auto& b: first) {
+    for (const auto &a: second) {
+        for (const auto &b: first) {
             if (a.first == b.first) {
                 double difference = b.second - a.second;
                 if (difference > 0) {
@@ -356,19 +356,19 @@ void WaterSupplyManager::evaluateEdgeRemoval(const string &source, const string 
 
 void WaterSupplyManager::printCitiesDetails() {
     cout << left << setw(15) << "City"
-              << setw(20) << "Name"
-              << setw(10) << "Demand"
-              << setw(15) << "Population" << endl;
+         << setw(20) << "Name"
+         << setw(10) << "Demand"
+         << setw(15) << "Population" << endl;
 
-    for (const auto &vertex : graph.getVertexSet()) {
+    for (const auto &vertex: graph.getVertexSet()) {
         if (vertex->getSel() == 3) {
             auto city = sites.find(vertex->getCode());
             if (city != sites.end()) {
                 cout << left << setw(15) << vertex->getCode()
-                          << setw(20) << city->second.getName()
-                          << setw(10) << city->second.getDemand()
-                          << setw(15) << city->second.getPopulation()
-                          << endl;
+                     << setw(20) << city->second.getName()
+                     << setw(10) << city->second.getDemand()
+                     << setw(15) << city->second.getPopulation()
+                     << endl;
             }
         }
     }
@@ -376,26 +376,26 @@ void WaterSupplyManager::printCitiesDetails() {
 
 void WaterSupplyManager::printReservoirsDetails() {
     cout << left << setw(15) << "Reservoir"
-              << setw(20) << "Name"
-              << setw(20) << "Municipality"
-              << setw(15) << "Max Delivery" << endl;
+         << setw(20) << "Name"
+         << setw(20) << "Municipality"
+         << setw(15) << "Max Delivery" << endl;
 
-    for (const auto &vertex : graph.getVertexSet()) {
+    for (const auto &vertex: graph.getVertexSet()) {
         if (vertex->getSel() == 1) {
             auto reservoir = reservoirs.find(vertex->getCode());
             if (reservoir != reservoirs.end()) {
                 cout << left << setw(15) << vertex->getCode()
-                          << setw(20) << reservoir->second.getName()
-                          << setw(20) << reservoir->second.getMunicipality()
-                          << setw(15) << reservoir->second.getMaxDelivery()
-                          << endl;
+                     << setw(20) << reservoir->second.getName()
+                     << setw(20) << reservoir->second.getMunicipality()
+                     << setw(15) << reservoir->second.getMaxDelivery()
+                     << endl;
             }
         }
     }
 }
 
 void WaterSupplyManager::printStationsDetails() {
-    for (const auto &vertex : graph.getVertexSet()) {
+    for (const auto &vertex: graph.getVertexSet()) {
         if (vertex->getSel() == 2) {
             auto station = stations.find(vertex->getCode());
             if (station != stations.end()) {

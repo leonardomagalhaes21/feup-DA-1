@@ -26,7 +26,7 @@ void Menu::showMenu() {
     WaterSupplyManager wsm;
     string system;
 
-    while(flag2){
+    while (flag2) {
         drawTop();
         cout << "| 1. Portugal's continental water supply network   |" << endl;
         cout << "| 2. Madeira water supply network                  |" << endl;
@@ -35,17 +35,17 @@ void Menu::showMenu() {
         cin >> key;
         switch (key) {
             case '1': {
-                system="continental";
+                system = "continental";
                 Data d = Data(system);
                 wsm = WaterSupplyManager(d);
-                flag2=false;
+                flag2 = false;
                 break;
             }
             case '2': {
-                system="madeira";
+                system = "madeira";
                 Data d = Data(system);
                 wsm = WaterSupplyManager(d);
-                flag2=false;
+                flag2 = false;
                 break;
             }
             default: {

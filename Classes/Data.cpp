@@ -3,14 +3,13 @@
 
 using namespace std;
 
-Data::Data(const string& s) {
-    if(s=="madeira"){
+Data::Data(const string &s) {
+    if (s == "madeira") {
         readReservoirs("../dataset/Madeira/Reservoirs_Madeira.csv");
         readStations("../dataset/Madeira/Stations_Madeira.csv");
         readSites("../dataset/Madeira/Cities_Madeira.csv");
         readPipes("../dataset/Madeira/Pipes_Madeira.csv");
-    }
-    else{
+    } else {
         readReservoirs("../dataset/Reservoir.csv");
         readStations("../dataset/Stations.csv");
         readSites("../dataset/Cities.csv");
